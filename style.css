@@ -130,4 +130,9 @@ nav {
   color: #ff9900;
 }
 
+.nav-menu a.active {
+  color: #ff9900;
+  border-bottom: 2px solid #ff9900;
+}
+
 

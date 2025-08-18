@@ -238,3 +238,18 @@
     });
   });
 </script>
+<script>
+  const toggleBtn = document.getElementById("toggleClients");
+  const clientsContent = document.getElementById("clientsContent");
+
+  toggleBtn.addEventListener("click", () => {
+    if (clientsContent.style.display === "none") {
+      clientsContent.style.display = "block";
+      toggleBtn.textContent = "Hide Clients";
+    } else {
+      clientsContent.style.display = "none";
+      toggleBtn.textContent = "Show Clients";
+    }
+  });
+</script>
+

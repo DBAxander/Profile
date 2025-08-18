@@ -250,6 +250,16 @@ nav {
   transform: scale(1.05);
 }
 
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* makes it a circle */
+  object-fit: cover; /* ensures the image fits nicely */
+  border: 3px solid #333; /* add a nice border */
+  margin-bottom: 15px;
+}
+
+
 
 
 

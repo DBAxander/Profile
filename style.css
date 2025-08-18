@@ -135,6 +135,54 @@ nav {
   border-bottom: 2px solid #ff9900;
 }
 
+/* Header layout */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #111; /* dark background like Pornhub */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Style (Pornhub vibe) */
+.logo {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.logo span {
+  background-color: #ff9900;
+  color: black;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+/* Nav Menu */
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #ff9900;
+}
+
+
 /* Skills Grid Layout */
 .skills-grid {
   display: grid;

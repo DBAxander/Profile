@@ -274,6 +274,21 @@
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".nav-menu a");
 
+  // Smooth scroll on click
+  navLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      window.scrollTo({
+        top: targetSection.offsetTop - 50, // offset for fixed nav
+        behavior: "smooth"
+      });
+    });
+  });
+
+  // Highlight active link on scroll
   window.addEventListener("scroll", () => {
     let current = "";
     sections.forEach(section => {
@@ -291,6 +306,7 @@
     });
   });
 </script>
+
 <script>
   const toggleBtn = document.getElementById("toggleClients");
   const clientsContent = document.getElementById("clientsContent");

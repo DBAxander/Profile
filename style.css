@@ -1,0 +1,94 @@
+/* ===== General Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #000; /* dark background */
+  color: #eee; /* light gray text */
+  line-height: 1.6;
+  padding: 0 20px;
+}
+
+/* ===== Header ===== */
+header {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #111, #000);
+  animation: fadeInDown 1s ease;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+header h2 {
+  font-size: 1.2rem;
+  color: #ff9900; /* orange highlight */
+}
+
+/* ===== Sections ===== */
+section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #111;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  animation: fadeInUp 1s ease;
+}
+
+section h3 {
+  color: #ff9900;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #ff9900;
+  padding-bottom: 5px;
+}
+
+/* Subheadings in Skills */
+section h4 {
+  color: #fff;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  text-decoration: underline;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+ul li {
+  margin: 5px 0;
+}
+
+/* ===== Work Experience ===== */
+.job {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-left: 4px solid #ff9900;
+  transition: transform 0.3s;
+}
+
+.job:hover {
+  transform: translateX(5px);
+  background: #1a1a1a;
+}
+
+/* ===== Contact Section ===== */
+#contact a {
+  color: #ff9900;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#contact a:hover {
+  color: #fff;
+}
+
+/* =*

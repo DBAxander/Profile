@@ -233,5 +233,23 @@ nav {
   box-shadow: 0 6px 12px rgba(0,0,0,0.8);
 }
 
+#toggleClients {
+  background: #ff9900;
+  color: #000;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#toggleClients:hover {
+  background: #e68a00;
+  transform: scale(1.05);
+}
+
+
 
 

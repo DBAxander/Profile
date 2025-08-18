@@ -188,19 +188,24 @@ nav {
 
 #clients {
   margin-top: 3rem;
+  background: #000; /* black background for section */
+  padding: 2rem;
+  border-radius: 12px;
 }
 
 #clients h3 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   text-align: center;
-  color: #333;
+  color: #ff9900; /* Pornhub orange */
 }
 
 #clients h4 {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  color: #ff9800;
+  color: #fff;
+  border-left: 4px solid #ff9900;
+  padding-left: 10px;
 }
 
 .clients-grid {
@@ -210,17 +215,23 @@ nav {
 }
 
 .client-card {
-  background: #fff;
+  background: #111; /* dark gray for contrast */
+  border: 2px solid #ff9900;
   border-radius: 10px;
   padding: 15px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
 
 .client-card:hover {
+  background: #ff9900;
+  color: #000;
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.8);
 }
+
 
 

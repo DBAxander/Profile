@@ -186,6 +186,50 @@ nav {
   color: #ff9900;
 }
 
+/* Hero Section */
+#hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: #111;
+  color: #fff;
+}
+
+#hero .highlight {
+  background: #f90; /* Pornhub orange */
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#hero .tagline {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+#hero .tagline span {
+  color: #f90;
+  font-weight: bold;
+}
+
+/* About Me Section */
+#about {
+  padding: 60px 20px;
+  background: #1a1a1a;
+  color: #eee;
+  text-align: left;
+}
+
+#about h3 {
+  color: #f90;
+  margin-bottom: 15px;
+}
+
+#about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
 
 /* Skills Grid Layout */
 .skills-grid {

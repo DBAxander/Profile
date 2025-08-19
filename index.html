@@ -270,13 +270,13 @@
 </body>
 </html>
 <script>
-  const logo = document.getElementById('logo');
-  const profileHeader = document.getElementById('profile-header');
+ const logo = document.getElementById('logo');
 
   logo.addEventListener('click', () => {
-    profileHeader.scrollIntoView({ 
-      behavior: 'smooth', // smooth scrolling
-      block: 'start'      // align at the top
+    // Smooth scroll to the very top of the page
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
   });
 </script>

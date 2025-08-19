@@ -9,7 +9,7 @@
 <body>
 
   <header class="site-header">
-  <div class="logo">
+  <div class="logo" id="logo">
     Xander <span>Rosanto</span>
   </div>
   <nav class="nav-menu">
@@ -269,6 +269,16 @@
   </footer>
 </body>
 </html>
+<script>
+  // Select the logo element
+  const logo = document.getElementById('logo');
+  const profileHeader = document.getElementById('profile-header');
+
+  // Scroll smoothly when logo is clicked
+  logo.addEventListener('click', () => {
+    profileHeader.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
 <script>
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".nav-menu a");

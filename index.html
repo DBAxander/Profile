@@ -270,13 +270,14 @@
 </body>
 </html>
 <script>
-  // Select the logo element
   const logo = document.getElementById('logo');
   const profileHeader = document.getElementById('profile-header');
 
-  // Scroll smoothly when logo is clicked
   logo.addEventListener('click', () => {
-    profileHeader.scrollIntoView({ behavior: 'smooth' });
+    profileHeader.scrollIntoView({ 
+      behavior: 'smooth', // smooth scrolling
+      block: 'start'      // align at the top
+    });
   });
 </script>
 <script>

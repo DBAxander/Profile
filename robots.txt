@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://xander-rosanto.netlify.app/sitemap.xml

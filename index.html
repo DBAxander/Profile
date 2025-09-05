@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Xander Rosanto - Software Engineer specializing in scalable web applications, warehouse management, delivery tracking, and registration systems.">
+  <title>Xander - Software Engineer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Courier New', monospace;
+    }
+    body {
+      background: #000;
+      color: #00ff00;
+      overflow-x: hidden;
+    }
+    header {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #00ff00;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #00ff00;
+    }
+    nav a {
+      color: #00ff00;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    nav a.active {
+      color: #00ff00;
+      border-bottom: 2px solid #00ff00;
+    }
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .typing {
+      font-size: 1.5rem;
+      border-right: 3px solid #00ff00;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #00ff00; }
+    }
+    .matrix-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: -1;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2, h3, h4 {
+      text-shadow: 0 0 10px #00ff00;
+      text-align: center;
+    }
+    .card {
+      background: #111;
+      border: 1px solid #00ff00;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ff00;
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00ff00;
+      margin-bottom: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .skill-card {
+      background: #111;
+      border: 1px solid #00ff00;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ff00;
+      transition: all 0.3s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px #00ff00;
+    }
+    .skill-card h4 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .skill-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .skill-card ul li {
+      margin: 5px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .skill-card ul li::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: #00ff00;
+    }
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      background: #111;
+      border: 1px solid #00ff00;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ff00;
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px #00ff00;
+    }
+    .project-card h4 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .job {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #111;
+      border: 1px solid #00ff00;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ff00;
+      transition: transform 0.3s;
+    }
+    .job:hover {
+      transform: translateX(5px);
+      background: #1a1a1a;
+    }
+    #contact a {
+      color: #00ff00;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    #contact a:hover {
+      color: #fff;
+    }
+    footer {
+      background: #111;
+      color: #00ff00;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 2px solid #00ff00;
+    }
+	
+	#toggleClients {
+  background-color: #000; /* black background */
+  color: #00ff00; /* neon green text */
+  border: 2px solid #00ff00; /* neon green border */
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 8px #00ff00;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+#toggleClients:hover {
+  background-color: #00ff00; /* neon green background on hover */
+  color: #000; /* black text on hover */
+  box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="matrix-bg">
+    <canvas id="matrix"></canvas>
+  </div>
+
+  <header>
+    <h1>Xander <span>Rosanto</span></h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#clients">Clients</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <img src="images/me.jpg" alt="Professional headshot of Xander Rosanto, a software engineer with short dark hair, wearing a casual shirt, smiling confidently in a modern office setting with coding backgrounds" class="profile-pic">   
+   <div class="card">
+	<h1>Hi, I'm Xander</h1>
+    <div class="typing">Software Engineer | Problem Solver | Tech Enthusiast</div>
+	</div>
+  </section>
+
+  <section id="about">
+    <h3>About Me</h3>
+    <div class="card">
+      <p>
+        I’m a passionate Software Engineer with several years of experience in
+        building scalable web applications and backend systems. My expertise spans
+        retail and logistics, where I’ve developed solutions for
+        warehouse management, delivery tracking, and registration systems.
+        I thrive on solving complex challenges with clean, efficient code and
+        creating software that drives operational efficiency.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h3>Skills</h3>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>Programming Languages</h4>
+        <ul>
+          <li>C#</li>
+          <li>Java</li>
+          <li>JavaScript</li>
+          <li>PHP</li>
+          <li>C / C++</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Web Development</h4>
+        <ul>
+          <li>ASP.NET</li>
+          <li>HTML / CSS</li>
+          <li>Angular</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Databases</h4>
+        <ul>
+          <li>SQL / Database Design</li>
+          <li>MySQL</li>
+          <li>Oracle SQL Database</li>
+          <li>Microsoft SQL Server</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Version Control & Collaboration Tools</h4>
+        <ul>
+          <li>Git</li>
+          <li>TortoiseSVN</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Infrastructure & IT Systems</h4>
+        <ul>
+          <li>Active Directory</li>
+          <li>DNS Management</li>
+          <li>VMware</li>
+          <li>IT Infrastructure Management</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Cloud & DevOps</h4>
+        <ul>
+          <li>Cloud Basics</li>
+          <li>DevOps Basics</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h3>Projects</h3>
+    <div class="projects-container">
+      <div class="project-card">
+        <h4>Warehouse Management System</h4>
+        <p>A full-stack desktop application for managing warehouse inventory in real time.</p>
+      </div>
+      <div class="project-card">
+        <h4>Warehouse Management (Android)</h4>
+        <p>An RF device–enabled Android app for seamless warehouse inventory management.</p>
+      </div>
+      <div class="project-card">
+        <h4>Delivery Management System</h4>
+        <p>A mobile-based system for real-time monitoring and tracking of deliveries.</p>
+      </div>
+      <div class="project-card">
+        <h4>Inventory Checker</h4>
+        <p>A barcode-scanning mobile tool to validate and count inventory efficiently.</p>
+      </div>
+      <div class="project-card">
+        <h4>Auto-Replenishment Tool (ART)</h4>
+        <p>A web solution that automates stock replenishment processes (used by Rose Pharmacy).</p>
+      </div>
+      <div class="project-card">
+        <h4>Put-to-Light (PTL)</h4>
+        <p>A light-guided picking system that boosts accuracy and speed in warehouse sorting.</p>
+      </div>
+      <div class="project-card">
+        <h4>Home Automation</h4>
+        <p>A smart home project enabling voice-activated control of appliances like lighting and air conditioning.</p>
+      </div>
+      <div class="project-card">
+        <h4>DORS</h4>
+        <p>The Databridge Online Registration System — a web app for vehicle registration with LTO.</p>
+      </div>
+      <div class="project-card">
+        <h4>DOSS</h4>
+        <p>The Databridge Other Service System — an accounting tool for billing non-standard services.</p>
+      </div>
+      <div class="project-card">
+        <h4>CTSI NRUS</h4>
+        <p>The CTSI New Registration Unit System — a vehicle registration web app with integrated loan applications for banks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h3>Work Experience</h3>
+    <div class="job">
+      <h4>Software Engineer – Capstone Telecom Service Inc. <span>(Dec 2024 – Aug 2025 · Contract · Hybrid · Philippines)</span></h4>
+      <ul>
+        <li>Developed a comprehensive LTO vehicle registration system with a user-friendly interface.</li>
+        <li>Maintained secure data management practices, ensuring compliance with industry standards.</li>
+        <li>Integrated APIs to streamline communication between systems, optimizing overall performance.</li>
+        <li>Achieved a 30% increase in processing speed through code optimization.</li>
+      </ul>
+      <p><i>Technologies: Angular, SQL Server Management Studio, and more.</i></p>
+    </div>
+    <div class="job">
+      <h4>Programmer – Databridge Asia Inc. <span>(Jun 2023 – Aug 2025 · Full-time · Hybrid)</span></h4>
+      <ul>
+        <li>Developed a comprehensive accounting system tool that streamlined financial reporting.</li>
+        <li>Refactored and maintained existing code to enhance system performance and reliability.</li>
+        <li>Provided technical support, resolving issues swiftly to minimize downtime.</li>
+        <li>Created detailed reports that improved decision-making and operational efficiency.</li>
+      </ul>
+      <p><i>Databridge is an accredited IT Service Provider of the Land Transportation Office (LTO).</i></p>
+    </div>
+    <div class="job">
+      <h4>IT Specialist – RXB Solution <span>(Feb 2021 – Aug 2025 · Freelance · Hybrid · Philippines)</span></h4>
+      <ul>
+        <li>Provided IT infrastructure solutions across multiple clients.</li>
+        <li>Worked with C programming, infrastructure setup, and system optimization.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h4>IT Specialist – MCSV <span>(Feb 2016 – Sep 2019 · Full-time)</span></h4>
+      <ul>
+        <li>Developed and maintained IT infrastructure using C, C++, and Oracle Database.</li>
+        <li>Implemented VMware solutions to optimize resource allocation (30% efficiency gain).</li>
+        <li>Managed Active Directory and DNS configurations for secure user access.</li>
+      </ul>
+      <p><i>MCSV focuses on warehouse management, transportation, and supply chain solutions.</i></p>
+    </div>
+  </section>
+
+  <section id="clients">
+    <h3>Clients</h3>
+    <button id="toggleClients">Show Clients</button>
+    <div id="clientsContent" style="display: none;">
+	<div  class="card">	
+		  <h4>Warehouse Management System</h4>
+		  <div class="clients-grid">
+			<div class="client-card">MSL (Magsaysay Shipping and Logistics)</div>
+			<div class="client-card">LogiCore Inc.</div>
+			<div class="client-card">D & L Industries Inc.</div>
+			<div class="client-card">Rose Pharmacy</div>
+			<div class="client-card">Pepsi-Cola Products Philippines Inc.</div>
+			<div class="client-card">Royal Cargo, Inc.</div>			
+	 </div>
+	
+		  <h4>Vehicle Registration System</h4>
+		  <div class="clients-grid">
+			<div class="client-card">DEARBORN MOTORS, CO., INC.</div>
+			<div class="client-card">ICONIC DEALERSHIP, INC.</div>
+			<div class="client-card">MGM MOTOR TRADING INC.</div>
+			<div class="client-card">MIZUKAWA</div>
+			<div class="client-card">VESPA SANTA ROSA</div>
+			<div class="client-card">MOTO FILIALE CORP</div>
+			<div class="client-card">MOTOVERSE PH</div>
+			<div class="client-card">ZOOMHUB INC</div>
+			<div class="client-card">GLOBAL CITY AUTO SALES, INC.</div>
+			<div class="client-card">LUXURIANT</div>
+			<div class="client-card">GLOBAL EXCELLENCE MOTORS INC</div>
+			<div class="client-card">DANOCARS TRADING</div>
+			<div class="client-card">BRITISH RACING CARS INC</div>
+			<div class="client-card">BRITISH ICONIC CARS, INC.</div>
+			<div class="client-card">BYD PHILIPPINES CORPORATION</div>
+			<div class="client-card">FORD MARIKINA</div>
+			<div class="client-card">AUTOITALIA PHILIPPINES</div>
+			<div class="client-card">TRIUMPH MOTORCYLES PHILIPPINES, INC.</div>
+			<div class="client-card">MOTOITALIA PHILIPPINES</div>
+			<div class="client-card">VESPA SCOOTERIA</div>
+			<div class="client-card">SCOOTERIA PILIPINAS INC.</div>
+			<div class="client-card">Ark Diversified and Automotors Group, Inc.</div>
+			<div class="client-card">AUTOMOBILE CENTRAL ENTERPRISE, INC.</div>
+			<div class="client-card">BRITISH BESPOKE AUTOMOBILES, INC.</div>
+			<div class="client-card">KP MOTORS</div>
+			<div class="client-card">DATABRIDGE ASIA, INC.</div>
+			<div class="client-card">Paramount Life & Gen Insurance</div>
+			<div class="client-card">AUTOITALIA PHILIPPINES SEGWAY</div>
+		  </div>
+	
+	 </div>
+  </section>
+
+  <section id="contact">
+    <h3>Contact Me</h3>
+    <div class="card">
+      <p>Email: <a href="mailto:developerxander@email.com">developerxander@email.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/xander-rosanto-a43243179">linkedin.com/in/xander-rosanto-a43243179</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Xander Rosanto. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Matrix Effect
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    const letters = '01';
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+    for(let x = 0; x < columns; x++) drops[x] = 1;
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#0F0';
+      ctx.font = fontSize + 'px monospace';
+      for(let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    setInterval(draw, 35);
+  </script>
+
+  <script>
+    const logo = document.querySelector('header h1');
+    logo.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+    navLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+        window.scrollTo({
+          top: targetSection.offsetTop - 50,
+          behavior: "smooth"
+        });
+      });
+    });
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 60;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+    const toggleBtn = document.getElementById("toggleClients");
+    const clientsContent = document.getElementById("clientsContent");
+    toggleBtn.addEventListener("click", () => {
+      if (clientsContent.style.display === "none") {
+        clientsContent.style.display = "block";
+        toggleBtn.textContent = "Hide Clients";
+      } else {
+        clientsContent.style.display = "none";
+        toggleBtn.textContent = "Show Clients";
+      }
+    });
+  </script>
+
+</body>
+</html>
+</content>
+</create_file>

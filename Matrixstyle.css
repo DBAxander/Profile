@@ -1,4 +1,15 @@
+.download-resume {
+  margin-left: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
 
+.download-resume:hover svg {
+  transform: scale(1.2);
+  fill: #00cc00;
+}
     /* Reset and base */
     * {
       margin: 0;
@@ -639,3 +650,5 @@
     height: 100px;
   }
 }
+
+

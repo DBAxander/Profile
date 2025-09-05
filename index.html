@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  crossorigin="anonymous"
+/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Xander Rosanto - Software Engineer specializing in scalable web applications, warehouse management, delivery tracking, and registration systems.">
   <title>Xander - Software Engineer</title>
   <style>
+    /* Reset and base */
     * {
       margin: 0;
       padding: 0;
@@ -16,43 +22,125 @@
       background: #000;
       color: #00ff00;
       overflow-x: hidden;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
+    /* Header */
     header {
       background: #111;
-      padding: 20px;
+      padding: 20px 10px;
       text-align: center;
       border-bottom: 2px solid #00ff00;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 0 15px #00ff00aa;
+      backdrop-filter: blur(10px);
+      animation: slideDownFadeIn 0.8s ease;
     }
     header h1 {
-      font-size: 2.5rem;
-      text-shadow: 0 0 10px #00ff00;
+      font-size: 2.8rem;
+      text-shadow: 0 0 15px #00ff00;
+      cursor: pointer;
+      user-select: none;
+      letter-spacing: 2px;
+      transition: color 0.3s ease;
+    }
+    header h1 span {
+      font-weight: 700;
+      color: #00ff00;
+    }
+    nav {
+      margin-top: 12px;
     }
     nav a {
       color: #00ff00;
-      margin: 0 15px;
+      margin: 0 18px;
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+      font-weight: 700;
+      font-size: 1.1rem;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: #00ff00;
+      transition: width 0.3s ease, left 0.3s ease;
+      border-radius: 2px;
     }
     nav a:hover {
       color: #fff;
     }
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
+    }
     nav a.active {
       color: #00ff00;
-      border-bottom: 2px solid #00ff00;
     }
+    nav a.active::after {
+      width: 100%;
+      left: 0;
+    }
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 100px 20px;
+      padding: 100px 20px 80px;
+      position: relative;
+      z-index: 10;
+      animation: fadeInUp 1s ease 0.5s forwards;
+    }
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00ff00;
+      margin-bottom: 20px;
+      display: inline-block;
+      box-shadow: 0 0 20px #00ff00aa;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: floatUpDown 4s ease-in-out infinite;
+    }
+    .profile-pic:hover {
+      transform: scale(1.1) rotate(3deg);
+      box-shadow: 0 0 30px #00ff00;
+    }
+    .card {
+      background: #111;
+      border: 1.5px solid #00ff00;
+      padding: 30px 35px;
+      margin: 0 auto;
+      max-width: 600px;
+      border-radius: 14px;
+      box-shadow: 0 0 30px #00ff00aa;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+    .card h1 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 20px #00ff00;
+      letter-spacing: 1.5px;
     }
     .typing {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       border-right: 3px solid #00ff00;
       display: inline-block;
       white-space: nowrap;
       overflow: hidden;
-      animation: typing 4s steps(40, end),infinite, blink 0.75s step-end infinite;
+      animation: typing 4s steps(40, end) infinite, blink 0.75s step-end infinite;
+      letter-spacing: 2px;
+      user-select: none;
     }
+    /* Animations */
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
@@ -61,6 +149,51 @@
       from, to { border-color: transparent }
       50% { border-color: #00ff00; }
     }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes glowPulse {
+      0%, 100% {
+        box-shadow: 0 0 30px #00ff00aa;
+      }
+      50% {
+        box-shadow: 0 0 45px #00ff00ff;
+      }
+    }
+    @keyframes floatUpDown {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    @keyframes slideDownFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%) rotate(25deg);
+      }
+      100% {
+        transform: translateX(100%) rotate(25deg);
+      }
+    }
+    /* Matrix Background */
     .matrix-bg {
       position: fixed;
       top: 0;
@@ -74,141 +207,403 @@
     canvas {
       display: block;
     }
+    /* Sections */
     section {
-      padding: 60px 20px;
+      padding: 60px 20px 80px;
       max-width: 1000px;
       margin: auto;
+      z-index: 10;
+      position: relative;
+      animation: fadeInUp 1s ease 0.7s forwards;
+      opacity: 0;
     }
     h2, h3, h4 {
-      text-shadow: 0 0 10px #00ff00;
+      text-shadow: 0 0 15px #00ff00;
       text-align: center;
+      margin-bottom: 25px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      animation: fadeInUp 0.8s ease forwards;
     }
-    .card {
-      background: #111;
-      border: 1px solid #00ff00;
-      padding: 20px;
-      margin: 15px 0;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #00ff00;
+    /* Cards */
+    .card p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #a0ffa0;
+      text-align: justify;
+      text-justify: inter-word;
+      transition: color 0.3s ease;
     }
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #00ff00;
-      margin-bottom: 10px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+    .card p:hover {
+      color: #fff;
     }
+    /* Skills Grid */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
       margin-top: 2rem;
     }
     .skill-card {
       background: #111;
-      border: 1px solid #00ff00;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #00ff00;
-      transition: all 0.3s ease;
+      border: 1.5px solid #00ff00;
+      padding: 25px 20px;
+      border-radius: 14px;
+      box-shadow: 0 0 25px #00ff00aa;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: default;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease forwards;
+    }
+    .skill-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, #00ff00aa, transparent);
+      animation: shine 3s linear infinite;
+      pointer-events: none;
+      transform: rotate(25deg);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 14px;
+      z-index: 1;
+    }
+    .skill-card:hover::before {
+      opacity: 1;
     }
     .skill-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px #00ff00;
+      transform: translateY(-12px) scale(1.05);
+      box-shadow: 0 0 40px #00ff00;
+      z-index: 10;
     }
     .skill-card h4 {
       text-align: center;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
+      font-size: 1.3rem;
+      letter-spacing: 1.2px;
+      position: relative;
+      z-index: 2;
     }
     .skill-card ul {
       list-style: none;
-      padding: 0;
+      padding-left: 0;
+      position: relative;
+      z-index: 2;
     }
     .skill-card ul li {
-      margin: 5px 0;
-      padding-left: 20px;
+      margin: 8px 0;
+      padding-left: 22px;
       position: relative;
+      font-size: 1.05rem;
+      color: #a0ffa0;
+      transition: color 0.3s ease;
     }
     .skill-card ul li::before {
-      content: ">";
+      content: "›";
       position: absolute;
       left: 0;
       color: #00ff00;
+      font-weight: 700;
+      font-size: 1.2rem;
+      top: 2px;
+      transition: color 0.3s ease;
     }
+    .skill-card ul li:hover {
+      color: #fff;
+    }
+    .skill-card ul li:hover::before {
+      color: #fff;
+    }
+    /* Projects Grid */
     .projects-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
       margin-top: 2rem;
     }
     .project-card {
       background: #111;
-      border: 1px solid #00ff00;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #00ff00;
-      transition: all 0.3s ease;
+      border: 1.5px solid #00ff00;
+      padding: 25px 20px;
+      border-radius: 14px;
+      box-shadow: 0 0 25px #00ff00aa;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: default;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease 0.5s forwards;
+      opacity: 0;
+    }
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, #00ff00aa, transparent);
+      animation: shine 3.5s linear infinite;
+      pointer-events: none;
+      transform: rotate(25deg);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 14px;
+      z-index: 1;
+    }
+    .project-card:hover::before {
+      opacity: 1;
     }
     .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px #00ff00;
+      transform: translateY(-12px) scale(1.05);
+      box-shadow: 0 0 40px #00ff00;
+      z-index: 10;
     }
     .project-card h4 {
       text-align: center;
       margin-bottom: 15px;
+      font-size: 1.3rem;
+      letter-spacing: 1.2px;
+      position: relative;
+      z-index: 2;
     }
+    .project-card p {
+      font-size: 1.05rem;
+      color: #a0ffa0;
+      line-height: 1.5;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    /* Experience */
     .job {
-      margin-bottom: 20px;
-      padding: 15px;
+      margin-bottom: 25px;
+      padding: 25px 25px 20px;
       background: #111;
-      border: 1px solid #00ff00;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #00ff00;
-      transition: transform 0.3s;
+      border: 1.5px solid #00ff00;
+      border-radius: 14px;
+      box-shadow: 0 0 25px #00ff00aa;
+      transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+      cursor: default;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease 0.6s forwards;
+      opacity: 0;
+    }
+    .job::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, #00ff00aa, transparent);
+      animation: shine 4s linear infinite;
+      pointer-events: none;
+      transform: rotate(25deg);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 14px;
+      z-index: 1;
+    }
+    .job:hover::before {
+      opacity: 1;
     }
     .job:hover {
-      transform: translateX(5px);
+      transform: translateX(8px);
       background: #1a1a1a;
+      box-shadow: 0 0 35px #00ff00;
+      z-index: 10;
+    }
+    .job h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      letter-spacing: 1.1px;
+      position: relative;
+      z-index: 2;
+    }
+    .job h4 span {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #70ff70aa;
+      font-style: italic;
+      display: block;
+      margin-top: 4px;
+      position: relative;
+      z-index: 2;
+    }
+    .job ul {
+      list-style: disc inside;
+      margin-bottom: 12px;
+      color: #a0ffa0;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      position: relative;
+      z-index: 2;
+    }
+    .job p i {
+      font-size: 0.95rem;
+      color: #70ff70aa;
+      position: relative;
+      z-index: 2;
+    }
+    /* Clients Section */
+    #clients {
+      text-align: center;
+    }
+    #toggleClients {
+      background-color: #000;
+      color: #00ff00;
+      border: 2px solid #00ff00;
+      padding: 12px 22px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ff00;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 25px;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease forwards;
+    }
+    #toggleClients::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, #00ff00aa, transparent);
+      animation: shine 3s linear infinite;
+      pointer-events: none;
+      transform: rotate(25deg);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 10px;
+      z-index: 0;
+    }
+    #toggleClients:hover::after {
+      opacity: 1;
+    }
+    #toggleClients:hover {
+      background-color: #00ff00;
+      color: #000;
+      box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+      z-index: 1;
+    }
+    #clientsContent {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 30px;
+    }
+    .client-card {
+      background: #111;
+      border: 1.5px solid #00ff00;
+      padding: 12px 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ff00aa;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #a0ffa0;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+      cursor: default;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease forwards;
+    }
+    .client-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, #00ff00aa, transparent);
+      animation: shine 3.5s linear infinite;
+      pointer-events: none;
+      transform: rotate(25deg);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 10px;
+      z-index: 0;
+    }
+    .client-card:hover::before {
+      opacity: 1;
+    }
+    .client-card:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 25px #00ff00;
+      color: #fff;
+      z-index: 10;
+    }
+    /* Contact Section */
+    #contact .card p {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+    #contact .card p:hover {
+      color: #fff;
     }
     #contact a {
       color: #00ff00;
       text-decoration: none;
-      transition: color 0.3s;
+      font-weight: 700;
+      transition: color 0.3s ease;
+      word-break: break-word;
     }
     #contact a:hover {
       color: #fff;
+      text-decoration: underline;
     }
+    /* Footer */
     footer {
       background: #111;
       color: #00ff00;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 20px 10px;
+      margin-top: auto;
       border-top: 2px solid #00ff00;
+      font-size: 1rem;
+      letter-spacing: 1.2px;
+      user-select: none;
+      box-shadow: 0 0 15px #00ff00aa inset;
+      animation: fadeInUp 1s ease forwards;
     }
-	
-	#toggleClients {
-  background-color: #000; /* black background */
-  color: #00ff00; /* neon green text */
-  border: 2px solid #00ff00; /* neon green border */
-  padding: 10px 18px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 0 8px #00ff00;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-}
-#toggleClients:hover {
-  background-color: #00ff00; /* neon green background on hover */
-  color: #000; /* black text on hover */
-  box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
-}
-
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      nav a {
+        margin: 0 10px;
+        font-size: 1rem;
+      }
+      .hero {
+        padding: 80px 15px 60px;
+      }
+      .card {
+        padding: 20px 15px;
+      }
+      .skills-grid, .projects-container, .clients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
   </style>
 </head>
 <body>
@@ -218,7 +613,7 @@
   </div>
 
   <header>
-    <h1>Xander <span>Rosanto</span></h1>
+    <h1 href="#home">Xander <span>Rosanto</span></h1>
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -230,11 +625,11 @@
   </header>
 
   <section class="hero" id="home">
-    <img src="images/me.jpg" alt="Professional headshot of Xander Rosanto, a software engineer with short dark hair, wearing a casual shirt, smiling confidently in a modern office setting with coding backgrounds" class="profile-pic">   
-   <div class="card">
-	<h1>Hi, I'm Xander</h1>
-    <div class="typing">Software Engineer | Problem Solver | Tech Enthusiast</div>
-	</div>
+    <img src="images/me.jpg" alt="Professional headshot of Xander Rosanto, a software engineer with short dark hair, wearing a casual shirt, smiling confidently in a modern office setting with coding backgrounds" class="profile-pic">
+    <div class="card">
+      <h1>Hi, I'm Xander</h1>
+      <div class="typing">Software Engineer | Problem Solver | Tech Enthusiast</div>
+    </div>
   </section>
 
   <section id="about">
@@ -374,7 +769,7 @@
         <li>Created detailed reports that improved decision-making and operational efficiency.</li>
       </ul>
       <p><i>Databridge is an accredited IT Service Provider of the Land Transportation Office (LTO).</i></p>
-    </div>    
+    </div>
     <div class="job">
       <h4>IT Specialist – MCSV <span>(Feb 2016 – Sep 2019 · Full-time)</span></h4>
       <ul>
@@ -390,59 +785,69 @@
     <h3>Clients</h3>
     <button id="toggleClients">Show Clients</button>
     <div id="clientsContent" style="display: none;">
-	<div  class="card">	
-		  <h4>Warehouse Management System</h4>
-		  <div class="clients-grid">
-			<div class="client-card">MSL (Magsaysay Shipping and Logistics)</div>
-			<div class="client-card">LogiCore Inc.</div>
-			<div class="client-card">D & L Industries Inc.</div>
-			<div class="client-card">Rose Pharmacy</div>
-			<div class="client-card">Pepsi-Cola Products Philippines Inc.</div>
-			<div class="client-card">Royal Cargo, Inc.</div>			
-	 </div>
-	
-		  <h4>Vehicle Registration System</h4>
-		  <div class="clients-grid">
-			<div class="client-card">DEARBORN MOTORS, CO., INC.</div>
-			<div class="client-card">ICONIC DEALERSHIP, INC.</div>
-			<div class="client-card">MGM MOTOR TRADING INC.</div>
-			<div class="client-card">MIZUKAWA</div>
-			<div class="client-card">VESPA SANTA ROSA</div>
-			<div class="client-card">MOTO FILIALE CORP</div>
-			<div class="client-card">MOTOVERSE PH</div>
-			<div class="client-card">ZOOMHUB INC</div>
-			<div class="client-card">GLOBAL CITY AUTO SALES, INC.</div>
-			<div class="client-card">LUXURIANT</div>
-			<div class="client-card">GLOBAL EXCELLENCE MOTORS INC</div>
-			<div class="client-card">DANOCARS TRADING</div>
-			<div class="client-card">BRITISH RACING CARS INC</div>
-			<div class="client-card">BRITISH ICONIC CARS, INC.</div>
-			<div class="client-card">BYD PHILIPPINES CORPORATION</div>
-			<div class="client-card">FORD MARIKINA</div>
-			<div class="client-card">AUTOITALIA PHILIPPINES</div>
-			<div class="client-card">TRIUMPH MOTORCYLES PHILIPPINES, INC.</div>
-			<div class="client-card">MOTOITALIA PHILIPPINES</div>
-			<div class="client-card">VESPA SCOOTERIA</div>
-			<div class="client-card">SCOOTERIA PILIPINAS INC.</div>
-			<div class="client-card">Ark Diversified and Automotors Group, Inc.</div>
-			<div class="client-card">AUTOMOBILE CENTRAL ENTERPRISE, INC.</div>
-			<div class="client-card">BRITISH BESPOKE AUTOMOBILES, INC.</div>
-			<div class="client-card">KP MOTORS</div>
-			<div class="client-card">DATABRIDGE ASIA, INC.</div>
-			<div class="client-card">Paramount Life & Gen Insurance</div>
-			<div class="client-card">AUTOITALIA PHILIPPINES SEGWAY</div>
-		  </div>
-	
-	 </div>
-  </section>
+      <div class="card">
+        <h4>Warehouse Management System</h4>
+        <div class="clients-grid">
+          <div class="client-card">MSL (Magsaysay Shipping and Logistics)</div>
+          <div class="client-card">LogiCore Inc.</div>
+          <div class="client-card">D & L Industries Inc.</div>
+          <div class="client-card">Rose Pharmacy</div>
+          <div class="client-card">Pepsi-Cola Products Philippines Inc.</div>
+          <div class="client-card">Royal Cargo, Inc.</div>
+        </div>
 
-  <section id="contact">
-    <h3>Contact Me</h3>
-    <div class="card">
-      <p>Email: <a href="mailto:developerxander@email.com">developerxander@email.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/xander-rosanto-a43243179">linkedin.com/in/xander-rosanto-a43243179</a></p>
+        <h4>Vehicle Registration System</h4>
+        <div class="clients-grid">
+          <div class="client-card">DEARBORN MOTORS, CO., INC.</div>
+          <div class="client-card">ICONIC DEALERSHIP, INC.</div>
+          <div class="client-card">MGM MOTOR TRADING INC.</div>
+          <div class="client-card">MIZUKAWA</div>
+          <div class="client-card">VESPA SANTA ROSA</div>
+          <div class="client-card">MOTO FILIALE CORP</div>
+          <div class="client-card">MOTOVERSE PH</div>
+          <div class="client-card">ZOOMHUB INC</div>
+          <div class="client-card">GLOBAL CITY AUTO SALES, INC.</div>
+          <div class="client-card">LUXURIANT</div>
+          <div class="client-card">GLOBAL EXCELLENCE MOTORS INC</div>
+          <div class="client-card">DANOCARS TRADING</div>
+          <div class="client-card">BRITISH RACING CARS INC</div>
+          <div class="client-card">BRITISH ICONIC CARS, INC.</div>
+          <div class="client-card">BYD PHILIPPINES CORPORATION</div>
+          <div class="client-card">FORD MARIKINA</div>
+          <div class="client-card">AUTOITALIA PHILIPPINES</div>
+          <div class="client-card">TRIUMPH MOTORCYLES PHILIPPINES, INC.</div>
+          <div class="client-card">MOTOITALIA PHILIPPINES</div>
+          <div class="client-card">VESPA SCOOTERIA</div>
+          <div class="client-card">SCOOTERIA PILIPINAS INC.</div>
+          <div class="client-card">Ark Diversified and Automotors Group, Inc.</div>
+          <div class="client-card">AUTOMOBILE CENTRAL ENTERPRISE, INC.</div>
+          <div class="client-card">BRITISH BESPOKE AUTOMOBILES, INC.</div>
+          <div class="client-card">KP MOTORS</div>
+          <div class="client-card">DATABRIDGE ASIA, INC.</div>
+          <div class="client-card">Paramount Life & Gen Insurance</div>
+          <div class="client-card">AUTOITALIA PHILIPPINES SEGWAY</div>
+        </div>
+      </div>
     </div>
   </section>
+
+<section id="contact">
+  <h3>Contact Me</h3>
+  <div class="card">
+    <p>
+      <i class="fas fa-envelope" aria-hidden="true"></i>
+      Email: <a href="mailto:developerxander@email.com">developerxander@email.com</a>
+    </p>
+    <p>
+      <i class="fab fa-linkedin" aria-hidden="true"></i>
+      LinkedIn: <a href="https://www.linkedin.com/in/xander-rosanto-a43243179">Xander Rosanto</a>
+    </p>
+    <p>
+      <i class="fas fa-phone" aria-hidden="true"></i>
+      Phone: <a href="tel:09632338097">0963 233 8097</a>
+    </p>
+  </div>
+</section>
 
   <footer>
     <p>© 2025 Xander Rosanto. All rights reserved.</p>
@@ -458,16 +863,16 @@
     const fontSize = 14;
     const columns = canvas.width / fontSize;
     const drops = [];
-    for(let x = 0; x < columns; x++) drops[x] = 1;
+    for (let x = 0; x < columns; x++) drops[x] = 1;
     function draw() {
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = '#0F0';
       ctx.font = fontSize + 'px monospace';
-      for(let i = 0; i < drops.length; i++) {
+      for (let i = 0; i < drops.length; i++) {
         const text = letters.charAt(Math.floor(Math.random() * letters.length));
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
         drops[i]++;
       }
     }

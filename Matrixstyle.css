@@ -118,16 +118,52 @@
       text-shadow: 0 0 20px #00ff00;
       letter-spacing: 1.5px;
     }
+
+    .typing-typewriter {
+          overflow: hidden;
+          white-space: nowrap;
+          border-right: 3px solid #00ff00;
+          animation: typing-typewriter 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing-typewriter {
+          from { width: 0 }
+          to { width: 100% }
+        }
+
+        .typing-loop {
+              overflow: hidden;
+              white-space: nowrap;
+              border-right: 3px solid #00ff00;
+              animation: typing-loop 6s steps(40, end) infinite;
+            }
+            
+            @keyframes typing-loop {
+              0% { width: 0 }
+              50% { width: 100% }
+              100% { width: 0 }
+            }
+    .typing-fade {
+      display: inline-block;
+      animation: fadeInLetters 4s steps(40, end) forwards;
+      border-right: 3px solid #00ff00;
+    }
+    
+    @keyframes fadeInLetters {
+      from { opacity: 0; width: 0 }
+      to { opacity: 1; width: 100% }
+    }
     .typing {
       font-size: 1.7rem;
       border-right: 3px solid #00ff00;
       display: inline-block;
       white-space: nowrap;
       overflow: hidden;
-      animation: typing 4s steps(40, end) infinite, blink 0.75s step-end infinite;
+      animation: typing 2.5s steps(40, end) infinite, blink 0.75s step-end infinite;
       letter-spacing: 2px;
       user-select: none;
-    }
+    }    
+
     /* Animations */
     @keyframes typing {
       from { width: 0 }

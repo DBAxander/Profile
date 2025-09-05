@@ -577,18 +577,29 @@
       animation: fadeInUp 1s ease forwards;
     }
     /* Responsive tweaks */
-    @media (max-width: 600px) {
-      nav a {
-        margin: 0 10px;
-        font-size: 1rem;
-      }
-      .hero {
-        padding: 80px 15px 60px;
-      }
-      .card {
-        padding: 20px 15px;
-      }
-      .skills-grid, .projects-container, .clients-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
-    }
+   @media (max-width: 600px) {
+  body {
+    font-size: 14px; /* Slightly smaller font for mobile */
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+  nav a {
+    margin: 0 8px;
+    font-size: 0.9rem;
+  }
+  .hero {
+    padding: 60px 15px 40px;
+  }
+  .card {
+    padding: 15px 10px;
+  }
+  .skills-grid, .projects-container, .clients-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+    gap: 1.5rem;
+  }
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+}

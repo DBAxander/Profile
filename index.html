@@ -1,357 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  crossorigin="anonymous"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Xander Rosanto - Software Engineer specializing in scalable web applications, warehouse management, delivery tracking, and registration systems.">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="Matrixstyle.css" />
-  <title>Xander Rosanto - Software Engineer</title>  
+  <meta name="description" content="Xander B. Rosanto — Software Engineer and Freelance Programmer experienced in .NET, Angular, SQL Server, warehouse management, registration, and business systems.">
+  <meta name="author" content="Xander B. Rosanto">
+  <meta name="theme-color" content="#f7f9fc">
+  <title>Xander B. Rosanto | Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root{--ink:#17243a;--muted:#637187;--blue:#2457d6;--blue-dark:#173eaa;--line:#e4eaf2;--surface:#fff;--bg:#f7f9fc;--soft:#eef3ff;--shadow:0 18px 50px rgba(26,48,87,.08);--radius:20px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}.container{width:min(1120px,calc(100% - 44px));margin:auto}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(228,234,242,.9)}.nav-wrap{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font:800 1.08rem 'Manrope',sans-serif;letter-spacing:-.5px}.brand span{color:var(--blue)}nav{display:flex;align-items:center;gap:27px}nav a{font-size:.88rem;font-weight:600;color:#5b687c;transition:.2s}nav a:hover,nav a.active{color:var(--blue)}.nav-cta{padding:10px 17px;border-radius:10px;background:var(--blue);color:white!important}.menu-toggle{display:none;border:0;background:none;color:var(--ink);font-size:1.35rem}
+    .hero{padding:92px 0 82px;background:radial-gradient(circle at 85% 18%,#e7edff 0,transparent 29%),linear-gradient(180deg,#fff 0%,#f7f9fc 100%)}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;align-items:center;gap:70px}.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid #dce6ff;background:#f4f7ff;color:var(--blue);border-radius:99px;font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.eyebrow:before{content:'';width:7px;height:7px;background:#22a06b;border-radius:50%}.hero h1{font:800 clamp(2.7rem,6vw,4.6rem)/1.08 'Manrope',sans-serif;letter-spacing:-2.8px;margin:22px 0 18px}.hero h1 span{color:var(--blue)}.hero-copy{max-width:650px;color:var(--muted);font-size:1.08rem;margin:0 0 29px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 19px;border-radius:11px;font-weight:700;font-size:.91rem;transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--blue);color:#fff;box-shadow:0 9px 22px rgba(36,87,214,.2)}.btn-primary:hover{background:var(--blue-dark)}.btn-secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}.hero-note{margin-top:24px;color:#8290a3;font-size:.83rem}.portrait-frame{position:relative;justify-self:end;width:min(100%,330px);aspect-ratio:4/5;padding:12px;border-radius:28px;background:#fff;box-shadow:var(--shadow);border:1px solid var(--line)}.portrait-frame:before{content:'';position:absolute;inset:-13px 20px 20px -13px;border:2px solid #cddaff;border-radius:28px;z-index:0}.profile-pic{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;border-radius:19px;background:#e8edf5}.portrait-caption{position:absolute;z-index:2;left:-34px;bottom:28px;padding:13px 17px;background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);font-size:.82rem;font-weight:700}.portrait-caption small{display:block;color:var(--muted);font-weight:500}
+    .quick-facts{padding:0 0 30px}.facts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.fact{background:#fff;border:1px solid var(--line);border-radius:15px;padding:19px 22px}.fact strong{display:block;font:700 1.04rem 'Manrope',sans-serif}.fact span{font-size:.82rem;color:var(--muted)}
+    section.content-section{padding:76px 0}.section-head{margin-bottom:30px;max-width:680px}.section-kicker{color:var(--blue);font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.section-head h2{font:800 clamp(1.8rem,4vw,2.5rem)/1.2 'Manrope',sans-serif;letter-spacing:-1.1px;margin:8px 0 10px}.section-head p{color:var(--muted);margin:0}.about-card{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:34px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.about-card p{margin:0;color:var(--muted)}.focus-list{display:grid;grid-template-columns:1fr 1fr;gap:13px}.focus-item{display:flex;align-items:center;gap:11px;font-weight:600;font-size:.9rem}.focus-item i{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:var(--soft);color:var(--blue)}
+    #skills{background:#fff}.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.skill-card,.project-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:23px;transition:.2s}.skill-card:hover,.project-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d2ddf5}.skill-card h3{font:700 1rem 'Manrope',sans-serif;margin:0 0 15px}.skill-card h3 i{color:var(--blue);margin-right:9px}.tag-list{display:flex;flex-wrap:wrap;gap:8px}.tag{padding:6px 10px;border-radius:7px;background:#f2f5fa;color:#536176;font-size:.8rem;font-weight:600}
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.project-card{padding:25px}.project-icon{width:43px;height:43px;display:grid;place-items:center;background:var(--soft);color:var(--blue);border-radius:12px;font-size:1.05rem;margin-bottom:18px}.project-card h3{font:700 1.02rem/1.4 'Manrope',sans-serif;margin:0 0 9px}.project-card p{font-size:.88rem;color:var(--muted);margin:0}
+    #experience{background:#fff}.timeline{position:relative;margin-left:9px;padding-left:29px;border-left:2px solid #e5ebf5}.timeline-item{position:relative;padding:0 0 34px}.timeline-item:last-child{padding-bottom:0}.timeline-item:before{content:'';position:absolute;left:-37px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--blue);border:4px solid #e8eeff;box-shadow:0 0 0 2px #fff}.job-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.job-top h3{font:700 1.06rem 'Manrope',sans-serif;margin:0}.job-date{white-space:nowrap;color:var(--blue);font-size:.8rem;font-weight:700;background:var(--soft);padding:5px 10px;border-radius:7px}.company{color:var(--muted);font-weight:600;font-size:.9rem;margin:4px 0 12px}.timeline-item ul{padding-left:19px;margin:0;color:#5f6e83;font-size:.9rem}.timeline-item li{padding:3px 0}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}.info-panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px}.info-panel h3{font:700 1.03rem 'Manrope',sans-serif;margin:0 0 16px}.info-entry+.info-entry{border-top:1px solid var(--line);padding-top:15px;margin-top:15px}.info-entry strong{display:block}.info-entry span{font-size:.86rem;color:var(--muted)}.cert-list{list-style:none;padding:0;margin:0}.cert-list li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;color:#526176;font-size:.9rem}.cert-list i{color:var(--blue);margin-top:5px}
+    #contact{background:#14233d;color:#fff}.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.contact-wrap .section-kicker{color:#9db8ff}.contact-wrap .section-head{margin:0}.contact-wrap .section-head h2{color:#fff}.contact-wrap .section-head p{color:#b8c4d8}.contact-links{display:grid;gap:12px}.contact-link{display:flex;align-items:center;gap:14px;padding:15px 17px;border:1px solid rgba(255,255,255,.13);border-radius:13px;color:#e9effb;transition:.2s}.contact-link:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.3)}.contact-link i{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:rgba(116,151,255,.17);color:#a9c0ff}.contact-link small{display:block;color:#9eacc2;font-size:.73rem}.contact-link strong{font-size:.88rem;overflow-wrap:anywhere}.site-footer{padding:22px 0;background:#101c31;color:#9eacc2;font-size:.8rem}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:900px){nav{gap:15px}nav a{font-size:.8rem}.hero-grid{gap:35px}.skills-grid,.projects-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:700px){.container{width:min(100% - 32px,560px)}.nav-wrap{height:68px}.menu-toggle{display:block}nav{display:none;position:absolute;top:68px;left:0;right:0;padding:16px 22px 20px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}nav.open{display:flex}nav a{padding:10px 0;font-size:.92rem}.nav-cta{margin-top:8px;text-align:center}.hero{padding:62px 0 52px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero h1{letter-spacing:-1.8px}.hero-copy{font-size:1rem}.portrait-frame{justify-self:center;width:min(78%,290px)}.portrait-caption{left:-24px}.facts-grid{grid-template-columns:1fr;gap:10px}.fact{padding:14px 17px}section.content-section{padding:58px 0}.about-card{grid-template-columns:1fr;padding:23px;gap:24px}.skills-grid,.projects-grid,.two-col{grid-template-columns:1fr}.job-top{display:block}.job-date{display:inline-block;margin-top:8px}.contact-wrap{grid-template-columns:1fr;gap:30px}.footer-inner{display:block}.footer-inner span{display:block;margin-top:5px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
 </head>
 <body>
-
-  <div class="matrix-bg">
-    <canvas id="matrix"></canvas>
-  </div>
-
-  <header>
-    <h1 href="#home">Xander <span>Rosanto</span></h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#clients">Clients</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Xander Rosanto home">XANDER <span>ROSANTO</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <nav id="mainNav" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a class="nav-cta" href="#contact">Let's Connect</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero" id="home">
-    <img src="images/me.jpg" alt="Professional headshot of Xander Rosanto, a software engineer with short dark hair, wearing a casual shirt, smiling confidently in a modern office setting with coding backgrounds" class="profile-pic">
-    <div class="card">
-    <h1><span>Hi, I'm Xander</span>  <a href="Xander-Rosanto [Software Engineer].pdf" download title="Download Resume" class="download-resume">
-        <!-- PDF icon SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00ff00" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M12 0L8 4h3v8h2V4h3l-4-4zm-1 14v6h2v-6h3l-4-4-4 4h3zM4 20v2h16v-2H4z"/>
-        </svg>
-      </a></h1>     
-    <div class="typing">
-      Software Engineer     
-    </div>
-  </div>
-  </section>
-
-  <section id="about">
-    <h3>About Me</h3>
-    <div class="card">
-      <p>
-        I’m a passionate Software Engineer with several years of experience in
-        building scalable web applications and backend systems. My expertise spans
-        retail and logistics, where I’ve developed solutions for
-        warehouse management, delivery tracking, and registration systems.
-        I thrive on solving complex challenges with clean, efficient code and
-        creating software that drives operational efficiency.
-      </p>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h3>Skills</h3>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h4>Programming Languages</h4>
-        <ul>
-          <li>C#</li>
-          <li>Java</li>
-          <li>JavaScript</li>
-          <li>PHP</li>
-          <li>C / C++</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <h4>Web Development</h4>
-        <ul>
-          <li>ASP.NET</li>
-          <li>HTML / CSS</li>
-          <li>Angular</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <h4>Databases</h4>
-        <ul>
-          <li>SQL / Database Design</li>
-          <li>MySQL</li>
-          <li>Oracle SQL Database</li>
-          <li>Microsoft SQL Server</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <h4>Version Control & Collaboration Tools</h4>
-        <ul>
-          <li>Git</li>
-          <li>TortoiseSVN</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <h4>Infrastructure & IT Systems</h4>
-        <ul>
-          <li>Active Directory</li>
-          <li>DNS Management</li>
-          <li>VMware</li>
-          <li>IT Infrastructure Management</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <h4>Cloud & DevOps</h4>
-        <ul>
-          <li>Cloud Basics</li>
-          <li>DevOps Basics</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h3>Projects</h3>
-    <div class="projects-container">
-      <div class="project-card">
-        <h4>Warehouse Management System</h4>
-        <p>A full-stack desktop application for managing warehouse inventory in real time.</p>
-      </div>
-      <div class="project-card">
-        <h4>Warehouse Management (Android)</h4>
-        <p>An RF device–enabled Android app for seamless warehouse inventory management.</p>
-      </div>
-      <div class="project-card">
-        <h4>Delivery Management System</h4>
-        <p>A mobile-based system for real-time monitoring and tracking of deliveries.</p>
-      </div>
-      <div class="project-card">
-        <h4>Inventory Checker</h4>
-        <p>A barcode-scanning mobile tool to validate and count inventory efficiently.</p>
-      </div>
-      <div class="project-card">
-        <h4>Auto-Replenishment Tool (ART)</h4>
-        <p>A web solution that automates stock replenishment processes (used by Rose Pharmacy).</p>
-      </div>
-      <div class="project-card">
-        <h4>Put-to-Light (PTL)</h4>
-        <p>A light-guided picking system that boosts accuracy and speed in warehouse sorting.</p>
-      </div>
-      <div class="project-card">
-        <h4>Home Automation</h4>
-        <p>A smart home project enabling voice-activated control of appliances like lighting and air conditioning.</p>
-      </div>
-      <div class="project-card">
-        <h4>DORS</h4>
-        <p>The Databridge Online Registration System — a web app for vehicle registration with LTO.</p>
-      </div>
-      <div class="project-card">
-        <h4>DOSS</h4>
-        <p>The Databridge Other Service System — an accounting tool for billing non-standard services.</p>
-      </div>
-      <div class="project-card">
-        <h4>CTSI NRUS</h4>
-        <p>The CTSI New Registration Unit System — a vehicle registration web app with integrated loan applications for banks.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <h3>Work Experience</h3>
-    <div class="job">
-      <h4>Software Engineer – Capstone Telecom Service Inc. <span>(Dec 2024 – Aug 2025 · Contract · Hybrid)</span></h4>
-      <p><strong>Duration: 9 months</strong></p>
-      <ul>
-        <li>Developed a comprehensive LTO vehicle registration system with a user-friendly interface.</li>
-        <li>Maintained secure data management practices, ensuring compliance with industry standards.</li>
-        <li>Integrated APIs to streamline communication between systems, optimizing overall performance.</li>
-        <li>Achieved a 30% increase in processing speed through code optimization.</li>
-      </ul>
-      <p><i>Technologies: Angular, SQL Server Management Studio, and more.</i></p>
-    </div>
-    <div class="job">
-      <h4>Programmer – Databridge Asia Inc. <span>(Jun 2023 – Aug 2025 · Full-time · Hybrid)</span></h4>
-       <p><strong>Duration: 2 years 3 months</strong></p>
-      <ul>
-        <li>Developed a comprehensive accounting system tool that streamlined financial reporting.</li>
-        <li>Refactored and maintained existing code to enhance system performance and reliability.</li>
-        <li>Provided technical support, resolving issues swiftly to minimize downtime.</li>
-        <li>Created detailed reports that improved decision-making and operational efficiency.</li>
-      </ul>
-      <p><i>Databridge is an accredited IT Service Provider of the Land Transportation Office (LTO).</i></p>
-    </div>
-    <div class="job">
-      <h4>IT Specialist – MCSV <span>(Feb 2016 – Sep 2019 · Full-time)</span></h4>
-       <p><strong>Duration: 3 years 7 months</strong></p>
-      <ul>
-        <li>Developed and maintained IT infrastructure using C, C++, and Oracle Database.</li>
-        <li>Implemented VMware solutions to optimize resource allocation (30% efficiency gain).</li>
-        <li>Managed Active Directory and DNS configurations for secure user access.</li>
-      </ul>
-      <p><i>MCSV focuses on warehouse management, transportation, and supply chain solutions.</i></p>
-    </div>
-  </section>
-
-  <section id="clients">
-    <h3>Clients</h3>
-    <button id="toggleClients">Show Clients</button>
-    <div id="clientsContent" style="display: none;">
-      <div class="card">
-        <h4>Warehouse Management System</h4>
-        <div class="clients-grid">
-          <div class="client-card">MSL (Magsaysay Shipping and Logistics)</div>
-          <div class="client-card">LogiCore Inc.</div>
-          <div class="client-card">D & L Industries Inc.</div>
-          <div class="client-card">Rose Pharmacy</div>
-          <div class="client-card">Pepsi-Cola Products Philippines Inc.</div>
-          <div class="client-card">Royal Cargo, Inc.</div>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Available for opportunities</span>
+          <h1>Building reliable<br><span>software solutions.</span></h1>
+          <p class="hero-copy">I'm Xander B. Rosanto, a Software Engineer and Freelance Programmer focused on web applications, backend systems, and business solutions — from warehouse operations to vehicle registration and accounting.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Explore My Work <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="btn btn-secondary" href="Xander-Rosanto%20%5BResume%5D.pdf" download><i class="fa-solid fa-download"></i> Download Résumé</a>
+          </div>
+          <p class="hero-note"><i class="fa-solid fa-location-dot"></i> General Trias, Cavite, Philippines</p>
         </div>
-
-        <h4>Vehicle Registration System</h4>
-        <div class="clients-grid">
-          <div class="client-card">DEARBORN MOTORS, CO., INC.</div>
-          <div class="client-card">ICONIC DEALERSHIP, INC.</div>
-          <div class="client-card">MGM MOTOR TRADING INC.</div>
-          <div class="client-card">MIZUKAWA</div>
-          <div class="client-card">VESPA SANTA ROSA</div>
-          <div class="client-card">MOTO FILIALE CORP</div>
-          <div class="client-card">MOTOVERSE PH</div>
-          <div class="client-card">ZOOMHUB INC</div>
-          <div class="client-card">GLOBAL CITY AUTO SALES, INC.</div>
-          <div class="client-card">LUXURIANT</div>
-          <div class="client-card">GLOBAL EXCELLENCE MOTORS INC</div>
-          <div class="client-card">DANOCARS TRADING</div>
-          <div class="client-card">BRITISH RACING CARS INC</div>
-          <div class="client-card">BRITISH ICONIC CARS, INC.</div>
-          <div class="client-card">BYD PHILIPPINES CORPORATION</div>
-          <div class="client-card">FORD MARIKINA</div>
-          <div class="client-card">AUTOITALIA PHILIPPINES</div>
-          <div class="client-card">TRIUMPH MOTORCYLES PHILIPPINES, INC.</div>
-          <div class="client-card">MOTOITALIA PHILIPPINES</div>
-          <div class="client-card">VESPA SCOOTERIA</div>
-          <div class="client-card">SCOOTERIA PILIPINAS INC.</div>
-          <div class="client-card">Ark Diversified and Automotors Group, Inc.</div>
-          <div class="client-card">AUTOMOBILE CENTRAL ENTERPRISE, INC.</div>
-          <div class="client-card">BRITISH BESPOKE AUTOMOBILES, INC.</div>
-          <div class="client-card">KP MOTORS</div>
-          <div class="client-card">DATABRIDGE ASIA, INC.</div>
-          <div class="client-card">Paramount Life & Gen Insurance</div>
-          <div class="client-card">AUTOITALIA PHILIPPINES SEGWAY</div>
+        <div class="portrait-frame">
+          <img class="profile-pic" src="images/me.jpg" alt="Portrait of Xander B. Rosanto" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')">
+          <div class="portrait-caption">Software Engineer<small>.NET · Angular · SQL</small></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-<section id="contact">
-  <h3>Contact Me</h3>
-  <div class="card">
-    <p>
-      <i class="fas fa-envelope" aria-hidden="true"></i>
-      Email: <a href="mailto:developerxander@email.com">developerxander@email.com</a>
-    </p>
-    <p>
-      <i class="fab fa-linkedin" aria-hidden="true"></i>
-      LinkedIn: <a href="https://www.linkedin.com/in/xander-rosanto-a43243179">Xander Rosanto</a>
-    </p>
-    <p>
-      <i class="fas fa-phone" aria-hidden="true"></i>
-      Phone: <a href="tel:09632338097">0963 233 8097</a>
-    </p>
-  </div>
-</section>
+    <div class="quick-facts"><div class="container facts-grid">
+      <div class="fact"><strong>Business Systems</strong><span>Web applications and backend services</span></div>
+      <div class="fact"><strong>Warehouse & Logistics</strong><span>Inventory, replenishment and delivery systems</span></div>
+      <div class="fact"><strong>Data & Infrastructure</strong><span>Database design, administration and IT systems</span></div>
+    </div></div>
 
-  <footer>
-    <p>© 2025 Xander Rosanto. All rights reserved.</p>
-  </footer>
+    <section class="content-section" id="about"><div class="container">
+      <div class="section-head"><span class="section-kicker">Profile</span><h2>About Me</h2><p>Practical engineering experience across software development and IT operations.</p></div>
+      <div class="about-card">
+        <p>I develop and maintain web applications and business systems, with experience in warehouse management, delivery tracking, vehicle registration, and accounting solutions. My background includes C#, .NET, Angular, SQL Server, Oracle Database, API integration, and IT infrastructure. I enjoy solving operational problems through maintainable software, thoughtful database design, and performance improvements.</p>
+        <div class="focus-list">
+          <div class="focus-item"><i class="fa-solid fa-code"></i> Application Development</div>
+          <div class="focus-item"><i class="fa-solid fa-database"></i> Database Design</div>
+          <div class="focus-item"><i class="fa-solid fa-gears"></i> System Optimization</div>
+          <div class="focus-item"><i class="fa-solid fa-network-wired"></i> IT Infrastructure</div>
+        </div>
+      </div>
+    </div></section>
 
+    <section class="content-section" id="skills"><div class="container">
+      <div class="section-head"><span class="section-kicker">Capabilities</span><h2>Technical Skills</h2><p>Technologies and tools listed in my professional résumé.</p></div>
+      <div class="skills-grid">
+        <article class="skill-card"><h3><i class="fa-solid fa-terminal"></i> Programming Languages</h3><div class="tag-list"><span class="tag">C#</span><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">C / C++</span><span class="tag">VB.NET</span><span class="tag">Oracle PL/SQL</span></div></article>
+        <article class="skill-card"><h3><i class="fa-solid fa-laptop-code"></i> Web Development</h3><div class="tag-list"><span class="tag">ASP.NET MVC</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Angular</span></div></article>
+        <article class="skill-card"><h3><i class="fa-solid fa-database"></i> Databases</h3><div class="tag-list"><span class="tag">SQL</span><span class="tag">Database Design</span><span class="tag">MySQL</span><span class="tag">Oracle SQL</span><span class="tag">Microsoft SQL Server</span></div></article>
+        <article class="skill-card"><h3><i class="fa-solid fa-code-branch"></i> Version Control & Collaboration</h3><div class="tag-list"><span class="tag">Git</span><span class="tag">TortoiseSVN</span><span class="tag">Trello</span></div></article>
+        <article class="skill-card"><h3><i class="fa-solid fa-server"></i> Infrastructure & IT Systems</h3><div class="tag-list"><span class="tag">Active Directory</span><span class="tag">DNS Management</span><span class="tag">VMware</span><span class="tag">IT Infrastructure Management</span></div></article>
+      </div>
+    </div></section>
+
+    <section class="content-section" id="projects"><div class="container">
+      <div class="section-head"><span class="section-kicker">Selected Work</span><h2>Projects</h2><p>Systems and solutions I have worked on throughout my career.</p></div>
+      <div class="projects-grid">
+        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-car"></i></div><h3>CTSI New Registration Unit System</h3><p>A vehicle registration web application with integrated loan applications for banks.</p></article>
+        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-file-circle-check"></i></div><h3>DataBridge Online Registration System</h3><p>A web application for vehicle registration with the Land Transportation Office (LTO).</p></article>
+        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-calculator"></i></div><h3>DataBridge Other Service System</h3><p>An accounting tool for billing non-standard services.</p></article>
+        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-truck-fast"></i></div><h3>Delivery Management System</h3><p>A mobile-based system for real-time monitoring and tracking of deliveries.</p></article>
+        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-boxes-stacked"></i></div><h3>Warehouse Management System</h3><p>A full-stack desktop application for managing warehouse inventory in real time.</p></article>
+        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><h3>RF-Enabled Android Application</h3><p>An RF device-enabled Android application for warehouse inventory management.</p></article>
+        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-barcode"></i></div><h3>Barcode Inventory Tool</h3><p>A mobile tool for validating and counting inventory through barcode scanning.</p></article>
+        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-arrows-rotate"></i></div><h3>Automated Stock Replenishment</h3><p>A web solution that automates warehouse stock replenishment processes.</p></article>
+        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-lightbulb"></i></div><h3>Light-Guided Picking System</h3><p>A light-guided picking solution designed to improve accuracy and speed in warehouse sorting.</p></article>
+      </div>
+    </div></section>
+
+    <section class="content-section" id="experience"><div class="container">
+      <div class="section-head"><span class="section-kicker">Career</span><h2>Work Experience</h2><p>Professional experience in software engineering, programming, and technical support.</p></div>
+      <div class="timeline">
+        <article class="timeline-item"><div class="job-top"><h3>Freelance Programmer</h3><span class="job-date">September 2025 – Present</span></div><p class="company">Self-Employed</p><ul><li>Develop custom web applications and business systems using C#, .NET, Angular, and SQL Server.</li><li>Design and maintain databases, APIs, and backend services for scalable solutions.</li><li>Fix bugs, optimize existing systems, and implement features based on client requirements.</li><li>Provide technical support, system deployment, and ongoing maintenance.</li></ul></article>
+        <article class="timeline-item"><div class="job-top"><h3>Software Engineer</h3><span class="job-date">December 2024 – August 2025</span></div><p class="company">Capstone Telecom Service · 9 months</p><ul><li>Developed an LTO vehicle registration system with a user-friendly interface.</li><li>Maintained secure data management practices and integrated APIs between systems.</li><li>Achieved a 30% increase in processing speed through code optimization.</li></ul></article>
+        <article class="timeline-item"><div class="job-top"><h3>Developer / Technical Support</h3><span class="job-date">June 2023 – November 2024</span></div><p class="company">DataBridge Asia Inc. · 1 year 6 months</p><ul><li>Developed an accounting system tool that streamlined financial reporting.</li><li>Refactored and maintained code to improve system performance and reliability.</li><li>Provided technical support and created reports for operational decision-making.</li></ul></article>
+        <article class="timeline-item"><div class="job-top"><h3>IT Specialist / Lead Developer / Consultant / Programmer</h3><span class="job-date">September 2016 – November 2019</span></div><p class="company">MCS Ventures · 3 years 6 months</p><ul><li>Developed and maintained Warehouse Management Systems for inventory, stock replenishment, and warehouse operations.</li><li>Developed and maintained IT infrastructure using C, C++, and Oracle Database.</li><li>Implemented VMware solutions, achieving a 30% efficiency gain.</li><li>Managed Active Directory and DNS configurations for secure user access.</li></ul></article>
+        <article class="timeline-item"><div class="job-top"><h3>Computer Technician</h3><span class="job-date">April 2016 – August 2016</span></div><p class="company">Lito Net Café · 6 months</p><ul><li>Diagnosed and resolved hardware and software issues across computer systems.</li><li>Helped maintain device uptime and customer satisfaction in a high-traffic environment.</li></ul></article>
+      </div>
+    </div></section>
+
+    <section class="content-section" id="education"><div class="container">
+      <div class="section-head"><span class="section-kicker">Background</span><h2>Education & Certifications</h2></div>
+      <div class="two-col">
+        <div class="info-panel"><h3><i class="fa-solid fa-graduation-cap" style="color:var(--blue);margin-right:8px"></i> Education</h3><div class="info-entry"><strong>Computer Network Administration (CNA)</strong><span>International Electronics and Technical Institute (IETI) · Las Piñas · 2023</span></div><div class="info-entry"><strong>Gawaran National High School</strong><span>Batch 2013</span></div></div>
+        <div class="info-panel"><h3><i class="fa-solid fa-award" style="color:var(--blue);margin-right:8px"></i> Certifications</h3><ul class="cert-list"><li><i class="fa-solid fa-circle-check"></i> Microsoft Office Specialist</li><li><i class="fa-solid fa-circle-check"></i> Electronics Product Assembly and Servicing NC II</li><li><i class="fa-solid fa-circle-check"></i> .NET Core & Angular JS</li></ul></div>
+      </div>
+    </div></section>
+
+    <section class="content-section" id="contact"><div class="container contact-wrap">
+      <div class="section-head"><span class="section-kicker">Get in touch</span><h2>Let's build something useful.</h2><p>Have a project, an opportunity, or a question? Feel free to reach out through any of the channels below.</p></div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:developerxander@gmail.com"><i class="fa-solid fa-envelope"></i><span><small>Email</small><strong>developerxander@gmail.com</strong></span></a>
+        <a class="contact-link" href="tel:09632338097"><i class="fa-solid fa-phone"></i><span><small>Phone</small><strong>0963 233 8097</strong></span></a>
+        <a class="contact-link" href="https://www.linkedin.com/in/xander-rosanto-a43243179" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i><span><small>LinkedIn</small><strong>linkedin.com/in/xander-rosanto-a43243179</strong></span></a>
+      </div>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><span>© <span id="currentYear"></span> Xander B. Rosanto. All rights reserved.</span><span>Designed with clarity and purpose.</span></div></footer>
   <script>
-    // Matrix Effect
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-    const letters = '01';
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = [];
-    for (let x = 0; x < columns; x++) drops[x] = 1;
-    function draw() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#0F0';
-      ctx.font = fontSize + 'px monospace';
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
-      }
-    }
-    setInterval(draw, 35);
+    const menuToggle=document.getElementById('menuToggle');
+    const mainNav=document.getElementById('mainNav');
+    menuToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.innerHTML=open?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';});
+    mainNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mainNav.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.innerHTML='<i class="fa-solid fa-bars"></i>';}));
+    const sections=[...document.querySelectorAll('main section[id]')];
+    const navLinks=[...mainNav.querySelectorAll('a[href^="#"]')];
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id));}}),{rootMargin:'-35% 0px -55% 0px'});
+    sections.forEach(section=>observer.observe(section));
+    document.getElementById('currentYear').textContent=new Date().getFullYear();
   </script>
-
-  <script>
-    const logo = document.querySelector('header h1');
-    logo.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav a");
-    navLinks.forEach(link => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute("href").substring(1);
-        const targetSection = document.getElementById(targetId);
-        window.scrollTo({
-          top: targetSection.offsetTop - 50,
-          behavior: "smooth"
-        });
-      });
-    });
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 60;
-        if (scrollY >= sectionTop) {
-          current = section.getAttribute("id");
-        }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("active");
-        }
-      });
-    });
-    const toggleBtn = document.getElementById("toggleClients");
-    const clientsContent = document.getElementById("clientsContent");
-    toggleBtn.addEventListener("click", () => {
-      if (clientsContent.style.display === "none") {
-        clientsContent.style.display = "block";
-        toggleBtn.textContent = "Hide Clients";
-      } else {
-        clientsContent.style.display = "none";
-        toggleBtn.textContent = "Show Clients";
-      }
-    });
-
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas(); // initial call
-  </script>
-
 </body>
 </html>
-</content>
-</create_file>

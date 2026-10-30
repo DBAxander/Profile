@@ -25,6 +25,43 @@
     #contact{background:#14233d;color:#fff}.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.contact-wrap .section-kicker{color:#9db8ff}.contact-wrap .section-head{margin:0}.contact-wrap .section-head h2{color:#fff}.contact-wrap .section-head p{color:#b8c4d8}.contact-links{display:grid;gap:12px}.contact-link{display:flex;align-items:center;gap:14px;padding:15px 17px;border:1px solid rgba(255,255,255,.13);border-radius:13px;color:#e9effb;transition:.2s}.contact-link:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.3)}.contact-link i{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:rgba(116,151,255,.17);color:#a9c0ff}.contact-link small{display:block;color:#9eacc2;font-size:.73rem}.contact-link strong{font-size:.88rem;overflow-wrap:anywhere}.site-footer{padding:22px 0;background:#101c31;color:#9eacc2;font-size:.8rem}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
     @media(max-width:900px){nav{gap:15px}nav a{font-size:.8rem}.hero-grid{gap:35px}.skills-grid,.projects-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:700px){.container{width:min(100% - 32px,560px)}.nav-wrap{height:68px}.menu-toggle{display:block}nav{display:none;position:absolute;top:68px;left:0;right:0;padding:16px 22px 20px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}nav.open{display:flex}nav a{padding:10px 0;font-size:.92rem}.nav-cta{margin-top:8px;text-align:center}.hero{padding:62px 0 52px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero h1{letter-spacing:-1.8px}.hero-copy{font-size:1rem}.portrait-frame{justify-self:center;width:min(78%,290px)}.portrait-caption{left:-24px}.facts-grid{grid-template-columns:1fr;gap:10px}.fact{padding:14px 17px}section.content-section{padding:58px 0}.about-card{grid-template-columns:1fr;padding:23px;gap:24px}.skills-grid,.projects-grid,.two-col{grid-template-columns:1fr}.job-top{display:block}.job-date{display:inline-block;margin-top:8px}.contact-wrap{grid-template-columns:1fr;gap:30px}.footer-inner{display:block}.footer-inner span{display:block;margin-top:5px}}
+
+    /* Smooth motion and scroll-reveal animations */
+    html{scroll-behavior:smooth}
+    .hero .eyebrow,.hero h1,.hero-copy,.hero-actions,.hero-note,.portrait-frame{
+      opacity:0;animation:heroEnter .8s cubic-bezier(.2,.75,.25,1) forwards
+    }
+    .hero .eyebrow{animation-delay:.08s}
+    .hero h1{animation-delay:.18s}
+    .hero-copy{animation-delay:.3s}
+    .hero-actions{animation-delay:.42s}
+    .hero-note{animation-delay:.52s}
+    .portrait-frame{animation-delay:.25s;transform-origin:center;animation-name:portraitEnter}
+    .portrait-frame{animation-duration:1s}
+    .portrait-frame:not(:hover){animation-fill-mode:forwards}
+    .portrait-frame:hover{transform:translateY(-7px) rotate(1deg);transition:transform .45s cubic-bezier(.2,.75,.25,1)}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.75,.25,1)}
+    .reveal.is-visible{opacity:1;transform:translateY(0)}
+    .reveal-left{opacity:0;transform:translateX(-28px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.75,.25,1)}
+    .reveal-left.is-visible{opacity:1;transform:translateX(0)}
+    .reveal-right{opacity:0;transform:translateX(28px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.75,.25,1)}
+    .reveal-right.is-visible{opacity:1;transform:translateX(0)}
+    .stagger-item{transition-delay:var(--reveal-delay,0ms)}
+    .fact,.skill-card,.project-card,.info-panel,.timeline-item,.contact-link{
+      transition:transform .35s cubic-bezier(.2,.75,.25,1),box-shadow .35s ease,border-color .35s ease,background-color .35s ease
+    }
+    .fact:hover,.skill-card:hover,.project-card:hover{transform:translateY(-6px);box-shadow:0 18px 42px rgba(26,48,87,.12)}
+    .btn{transition:transform .3s cubic-bezier(.2,.75,.25,1),box-shadow .3s ease,background-color .3s ease}
+    .btn:hover{transform:translateY(-3px)}
+    .portrait-frame{animation:portraitEnter 1s .25s cubic-bezier(.2,.75,.25,1) both}
+    @keyframes heroEnter{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes portraitEnter{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+      .reveal,.reveal-left,.reveal-right,.hero .eyebrow,.hero h1,.hero-copy,.hero-actions,.hero-note,.portrait-frame{opacity:1!important;transform:none!important}
+    }
+
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
   </style>
 </head>
@@ -60,16 +97,16 @@
     </section>
 
     <div class="quick-facts"><div class="container facts-grid">
-      <div class="fact"><strong>Business Systems</strong><span>Web applications and backend services</span></div>
-      <div class="fact"><strong>Warehouse & Logistics</strong><span>Inventory, replenishment and delivery systems</span></div>
-      <div class="fact"><strong>Data & Infrastructure</strong><span>Database design, administration and IT systems</span></div>
+      <div class="fact reveal stagger-item"><strong>Business Systems</strong><span>Web applications and backend services</span></div>
+      <div class="fact reveal stagger-item"><strong>Warehouse & Logistics</strong><span>Inventory, replenishment and delivery systems</span></div>
+      <div class="fact reveal stagger-item"><strong>Data & Infrastructure</strong><span>Database design, administration and IT systems</span></div>
     </div></div>
 
     <section class="content-section" id="about"><div class="container">
-      <div class="section-head"><span class="section-kicker">Profile</span><h2>About Me</h2><p>Practical engineering experience across software development and IT operations.</p></div>
-      <div class="about-card">
+      <div class="section-head reveal"><span class="section-kicker">Profile</span><h2>About Me</h2><p>Practical engineering experience across software development and IT operations.</p></div>
+      <div class="about-card reveal">
         <p>I develop and maintain web applications and business systems, with experience in warehouse management, delivery tracking, vehicle registration, and accounting solutions. My background includes C#, .NET, Angular, SQL Server, Oracle Database, API integration, and IT infrastructure. I enjoy solving operational problems through maintainable software, thoughtful database design, and performance improvements.</p>
-        <div class="focus-list">
+        <div class="focus-list reveal-right">
           <div class="focus-item"><i class="fa-solid fa-code"></i> Application Development</div>
           <div class="focus-item"><i class="fa-solid fa-database"></i> Database Design</div>
           <div class="focus-item"><i class="fa-solid fa-gears"></i> System Optimization</div>
@@ -79,34 +116,34 @@
     </div></section>
 
     <section class="content-section" id="skills"><div class="container">
-      <div class="section-head"><span class="section-kicker">Capabilities</span><h2>Technical Skills</h2><p>Technologies and tools listed in my professional résumé.</p></div>
+      <div class="section-head reveal"><span class="section-kicker">Capabilities</span><h2>Technical Skills</h2><p>Technologies and tools listed in my professional résumé.</p></div>
       <div class="skills-grid">
-        <article class="skill-card"><h3><i class="fa-solid fa-terminal"></i> Programming Languages</h3><div class="tag-list"><span class="tag">C#</span><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">C / C++</span><span class="tag">VB.NET</span><span class="tag">Oracle PL/SQL</span></div></article>
-        <article class="skill-card"><h3><i class="fa-solid fa-laptop-code"></i> Web Development</h3><div class="tag-list"><span class="tag">ASP.NET MVC</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Angular</span></div></article>
-        <article class="skill-card"><h3><i class="fa-solid fa-database"></i> Databases</h3><div class="tag-list"><span class="tag">SQL</span><span class="tag">Database Design</span><span class="tag">MySQL</span><span class="tag">Oracle SQL</span><span class="tag">Microsoft SQL Server</span></div></article>
-        <article class="skill-card"><h3><i class="fa-solid fa-code-branch"></i> Version Control & Collaboration</h3><div class="tag-list"><span class="tag">Git</span><span class="tag">TortoiseSVN</span><span class="tag">Trello</span></div></article>
-        <article class="skill-card"><h3><i class="fa-solid fa-server"></i> Infrastructure & IT Systems</h3><div class="tag-list"><span class="tag">Active Directory</span><span class="tag">DNS Management</span><span class="tag">VMware</span><span class="tag">IT Infrastructure Management</span></div></article>
+        <article class="skill-card reveal stagger-item"><h3><i class="fa-solid fa-terminal"></i> Programming Languages</h3><div class="tag-list"><span class="tag">C#</span><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">C / C++</span><span class="tag">VB.NET</span><span class="tag">Oracle PL/SQL</span></div></article>
+        <article class="skill-card reveal stagger-item"><h3><i class="fa-solid fa-laptop-code"></i> Web Development</h3><div class="tag-list"><span class="tag">ASP.NET MVC</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Angular</span></div></article>
+        <article class="skill-card reveal stagger-item"><h3><i class="fa-solid fa-database"></i> Databases</h3><div class="tag-list"><span class="tag">SQL</span><span class="tag">Database Design</span><span class="tag">MySQL</span><span class="tag">Oracle SQL</span><span class="tag">Microsoft SQL Server</span></div></article>
+        <article class="skill-card reveal stagger-item"><h3><i class="fa-solid fa-code-branch"></i> Version Control & Collaboration</h3><div class="tag-list"><span class="tag">Git</span><span class="tag">TortoiseSVN</span><span class="tag">Trello</span></div></article>
+        <article class="skill-card reveal stagger-item"><h3><i class="fa-solid fa-server"></i> Infrastructure & IT Systems</h3><div class="tag-list"><span class="tag">Active Directory</span><span class="tag">DNS Management</span><span class="tag">VMware</span><span class="tag">IT Infrastructure Management</span></div></article>
       </div>
     </div></section>
 
     <section class="content-section" id="projects"><div class="container">
-      <div class="section-head"><span class="section-kicker">Selected Work</span><h2>Projects</h2><p>Systems and solutions I have worked on throughout my career.</p></div>
+      <div class="section-head reveal"><span class="section-kicker">Selected Work</span><h2>Projects</h2><p>Systems and solutions I have worked on throughout my career.</p></div>
       <div class="projects-grid">
-        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-car"></i></div><h3>CTSI New Registration Unit System</h3><p>A vehicle registration web application with integrated loan applications for banks.</p></article>
-        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-file-circle-check"></i></div><h3>DataBridge Online Registration System</h3><p>A web application for vehicle registration with the Land Transportation Office (LTO).</p></article>
-        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-calculator"></i></div><h3>DataBridge Other Service System</h3><p>An accounting tool for billing non-standard services.</p></article>
-        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-truck-fast"></i></div><h3>Delivery Management System</h3><p>A mobile-based system for real-time monitoring and tracking of deliveries.</p></article>
-        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-boxes-stacked"></i></div><h3>Warehouse Management System</h3><p>A full-stack desktop application for managing warehouse inventory in real time.</p></article>
-        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><h3>RF-Enabled Android Application</h3><p>An RF device-enabled Android application for warehouse inventory management.</p></article>
-        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-barcode"></i></div><h3>Barcode Inventory Tool</h3><p>A mobile tool for validating and counting inventory through barcode scanning.</p></article>
-        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-arrows-rotate"></i></div><h3>Automated Stock Replenishment</h3><p>A web solution that automates warehouse stock replenishment processes.</p></article>
-        <article class="project-card"><div class="project-icon"><i class="fa-solid fa-lightbulb"></i></div><h3>Light-Guided Picking System</h3><p>A light-guided picking solution designed to improve accuracy and speed in warehouse sorting.</p></article>
+        <article class="project-card reveal stagger-item"><div class="project-icon"><i class="fa-solid fa-car"></i></div><h3>CTSI New Registration Unit System</h3><p>A vehicle registration web application with integrated loan applications for banks.</p></article>
+        <article class="project-card reveal stagger-item"><div class="project-icon"><i class="fa-solid fa-file-circle-check"></i></div><h3>DataBridge Online Registration System</h3><p>A web application for vehicle registration with the Land Transportation Office (LTO).</p></article>
+        <article class="project-card reveal stagger-item"><div class="project-icon"><i class="fa-solid fa-calculator"></i></div><h3>DataBridge Other Service System</h3><p>An accounting tool for billing non-standard services.</p></article>
+        <article class="project-card reveal stagger-item"><div class="project-icon"><i class="fa-solid fa-truck-fast"></i></div><h3>Delivery Management System</h3><p>A mobile-based system for real-time monitoring and tracking of deliveries.</p></article>
+        <article class="project-card reveal stagger-item"><div class="project-icon"><i class="fa-solid fa-boxes-stacked"></i></div><h3>Warehouse Management System</h3><p>A full-stack desktop application for managing warehouse inventory in real time.</p></article>
+        <article class="project-card reveal stagger-item"><div class="project-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><h3>RF-Enabled Android Application</h3><p>An RF device-enabled Android application for warehouse inventory management.</p></article>
+        <article class="project-card reveal stagger-item"><div class="project-icon"><i class="fa-solid fa-barcode"></i></div><h3>Barcode Inventory Tool</h3><p>A mobile tool for validating and counting inventory through barcode scanning.</p></article>
+        <article class="project-card reveal stagger-item"><div class="project-icon"><i class="fa-solid fa-arrows-rotate"></i></div><h3>Automated Stock Replenishment</h3><p>A web solution that automates warehouse stock replenishment processes.</p></article>
+        <article class="project-card reveal stagger-item"><div class="project-icon"><i class="fa-solid fa-lightbulb"></i></div><h3>Light-Guided Picking System</h3><p>A light-guided picking solution designed to improve accuracy and speed in warehouse sorting.</p></article>
       </div>
     </div></section>
 
     <section class="content-section" id="experience"><div class="container">
-      <div class="section-head"><span class="section-kicker">Career</span><h2>Work Experience</h2><p>Professional experience in software engineering, programming, and technical support.</p></div>
-      <div class="timeline">
+      <div class="section-head reveal"><span class="section-kicker">Career</span><h2>Work Experience</h2><p>Professional experience in software engineering, programming, and technical support.</p></div>
+      <div class="timeline reveal-left">
         <article class="timeline-item"><div class="job-top"><h3>Freelance Programmer</h3><span class="job-date">September 2025 – Present</span></div><p class="company">Self-Employed</p><ul><li>Develop custom web applications and business systems using C#, .NET, Angular, and SQL Server.</li><li>Design and maintain databases, APIs, and backend services for scalable solutions.</li><li>Fix bugs, optimize existing systems, and implement features based on client requirements.</li><li>Provide technical support, system deployment, and ongoing maintenance.</li></ul></article>
         <article class="timeline-item"><div class="job-top"><h3>Software Engineer</h3><span class="job-date">December 2024 – August 2025</span></div><p class="company">Capstone Telecom Service · 9 months</p><ul><li>Developed an LTO vehicle registration system with a user-friendly interface.</li><li>Maintained secure data management practices and integrated APIs between systems.</li><li>Achieved a 30% increase in processing speed through code optimization.</li></ul></article>
         <article class="timeline-item"><div class="job-top"><h3>Developer / Technical Support</h3><span class="job-date">June 2023 – November 2024</span></div><p class="company">DataBridge Asia Inc. · 1 year 6 months</p><ul><li>Developed an accounting system tool that streamlined financial reporting.</li><li>Refactored and maintained code to improve system performance and reliability.</li><li>Provided technical support and created reports for operational decision-making.</li></ul></article>
@@ -116,19 +153,19 @@
     </div></section>
 
     <section class="content-section" id="education"><div class="container">
-      <div class="section-head"><span class="section-kicker">Background</span><h2>Education & Certifications</h2></div>
-      <div class="two-col">
-        <div class="info-panel"><h3><i class="fa-solid fa-graduation-cap" style="color:var(--blue);margin-right:8px"></i> Education</h3><div class="info-entry"><strong>Computer Network Administration (CNA)</strong><span>International Electronics and Technical Institute (IETI) · Las Piñas · 2023</span></div><div class="info-entry"><strong>Gawaran National High School</strong><span>Batch 2013</span></div></div>
-        <div class="info-panel"><h3><i class="fa-solid fa-award" style="color:var(--blue);margin-right:8px"></i> Certifications</h3><ul class="cert-list"><li><i class="fa-solid fa-circle-check"></i> Microsoft Office Specialist</li><li><i class="fa-solid fa-circle-check"></i> Electronics Product Assembly and Servicing NC II</li><li><i class="fa-solid fa-circle-check"></i> .NET Core & Angular JS</li></ul></div>
+      <div class="section-head reveal"><span class="section-kicker">Background</span><h2>Education & Certifications</h2></div>
+      <div class="two-col reveal">
+        <div class="info-panel reveal stagger-item"><h3><i class="fa-solid fa-graduation-cap" style="color:var(--blue);margin-right:8px"></i> Education</h3><div class="info-entry"><strong>Computer Network Administration (CNA)</strong><span>International Electronics and Technical Institute (IETI) · Las Piñas · 2023</span></div><div class="info-entry"><strong>Gawaran National High School</strong><span>Batch 2013</span></div></div>
+        <div class="info-panel reveal stagger-item"><h3><i class="fa-solid fa-award" style="color:var(--blue);margin-right:8px"></i> Certifications</h3><ul class="cert-list"><li><i class="fa-solid fa-circle-check"></i> Microsoft Office Specialist</li><li><i class="fa-solid fa-circle-check"></i> Electronics Product Assembly and Servicing NC II</li><li><i class="fa-solid fa-circle-check"></i> .NET Core & Angular JS</li></ul></div>
       </div>
     </div></section>
 
     <section class="content-section" id="contact"><div class="container contact-wrap">
-      <div class="section-head"><span class="section-kicker">Get in touch</span><h2>Let's build something useful.</h2><p>Have a project, an opportunity, or a question? Feel free to reach out through any of the channels below.</p></div>
-      <div class="contact-links">
-        <a class="contact-link" href="mailto:developerxander@gmail.com"><i class="fa-solid fa-envelope"></i><span><small>Email</small><strong>developerxander@gmail.com</strong></span></a>
-        <a class="contact-link" href="tel:09632338097"><i class="fa-solid fa-phone"></i><span><small>Phone</small><strong>0963 233 8097</strong></span></a>
-        <a class="contact-link" href="https://www.linkedin.com/in/xander-rosanto-a43243179" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i><span><small>LinkedIn</small><strong>linkedin.com/in/xander-rosanto-a43243179</strong></span></a>
+      <div class="section-head reveal"><span class="section-kicker">Get in touch</span><h2>Let's build something useful.</h2><p>Have a project, an opportunity, or a question? Feel free to reach out through any of the channels below.</p></div>
+      <div class="contact-links reveal-right">
+        <a class="contact-link reveal stagger-item" href="mailto:developerxander@gmail.com"><i class="fa-solid fa-envelope"></i><span><small>Email</small><strong>developerxander@gmail.com</strong></span></a>
+        <a class="contact-link reveal stagger-item" href="tel:09632338097"><i class="fa-solid fa-phone"></i><span><small>Phone</small><strong>0963 233 8097</strong></span></a>
+        <a class="contact-link reveal stagger-item" href="https://www.linkedin.com/in/xander-rosanto-a43243179" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i><span><small>LinkedIn</small><strong>linkedin.com/in/xander-rosanto-a43243179</strong></span></a>
       </div>
     </div></section>
   </main>
@@ -138,6 +175,30 @@
     const mainNav=document.getElementById('mainNav');
     menuToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.innerHTML=open?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';});
     mainNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mainNav.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.innerHTML='<i class="fa-solid fa-bars"></i>';}));
+
+    // Reveal content as it enters the viewport, with a gentle stagger for card grids.
+    const revealItems=[...document.querySelectorAll('.reveal,.reveal-left,.reveal-right')];
+    revealItems.forEach((item,index)=>{
+      const siblings=[...item.parentElement.children].filter(el=>el.matches('.stagger-item'));
+      if(item.classList.contains('stagger-item')){
+        const position=siblings.indexOf(item);
+        item.style.setProperty('--reveal-delay',`${Math.max(0,position)*85}ms`);
+      }
+    });
+    if('IntersectionObserver' in window){
+      const revealObserver=new IntersectionObserver((entries,observer)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },{threshold:.12,rootMargin:'0px 0px -35px 0px'});
+      revealItems.forEach(item=>revealObserver.observe(item));
+    }else{
+      revealItems.forEach(item=>item.classList.add('is-visible'));
+    }
+
     const sections=[...document.querySelectorAll('main section[id]')];
     const navLinks=[...mainNav.querySelectorAll('a[href^="#"]')];
     const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id));}}),{rootMargin:'-35% 0px -55% 0px'});

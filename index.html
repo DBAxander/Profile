@@ -274,7 +274,12 @@
     @keyframes statusPulse{0%,100%{box-shadow:0 0 0 0 rgba(34,160,107,.28)}50%{box-shadow:0 0 0 6px rgba(34,160,107,0)}}
     .fact,.skill-card,.project-card,.about-card,.job-card,.education-card,.contact-card{transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
     .fact:hover,.skill-card:hover,.job-card:hover,.education-card:hover{transform:translateY(-5px);box-shadow:0 14px 32px rgba(27,52,94,.09);border-color:#cbd9f5}
-    .section-head h2{position:relative;display:inline-block}
+    /* Keep every section label and title on separate lines, including Profile / About Me. */
+    .section-head{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+    .section-head .section-kicker{display:block !important;position:static;float:none;width:max-content;max-width:100%;line-height:1.35;margin:0 0 5px;flex:0 0 auto}
+    .section-head h2{display:block !important;position:relative;float:none;width:max-content;max-width:100%;line-height:1.2;overflow-wrap:anywhere;margin:0 0 10px;flex:0 0 auto}
+    .section-head>p{display:block;width:100%;margin:0}
+    .section-head h2{position:relative;display:block;width:max-content;max-width:100%;line-height:1.2;overflow-wrap:anywhere;margin:0 0 10px}
     .section-head h2:after{content:'';position:absolute;left:0;bottom:-7px;width:44px;height:3px;border-radius:4px;background:var(--blue);transition:width .35s ease}
     .section-head:hover h2:after{width:78px}
     .hero-actions .btn{transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
@@ -387,8 +392,8 @@
     <section class="content-section" id="contact"><div class="container contact-wrap">
       <div class="section-head reveal"><span class="section-kicker">Get in touch</span><h2>Let's build something useful.</h2><p>Have a project, an opportunity, or a question? Feel free to reach out through any of the channels below.</p></div>
       <div class="contact-links reveal-right">
-        <a class="contact-link reveal stagger-item" ><i class="fa-solid fa-envelope"></i><span><small>Email</small><strong>developerxander@gmail.com</strong></span></a>
-        <a class="contact-link reveal stagger-item" ><i class="fa-solid fa-phone"></i><span><small>Phone</small><strong>0963 233 8097</strong></span></a>
+        <a class="contact-link reveal stagger-item" href="mailto:developerxander@gmail.com"><i class="fa-solid fa-envelope"></i><span><small>Email</small><strong>developerxander@gmail.com</strong></span></a>
+        <a class="contact-link reveal stagger-item" href="tel:09632338097"><i class="fa-solid fa-phone"></i><span><small>Phone</small><strong>0963 233 8097</strong></span></a>
         <a class="contact-link reveal stagger-item" href="https://www.linkedin.com/in/xander-rosanto-a43243179" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i><span><small>LinkedIn</small><strong>linkedin.com/in/xander-rosanto-a43243179</strong></span></a>
       </div>
     </div></section>
@@ -547,12 +552,31 @@
 
     const sections=[...document.querySelectorAll('main section[id]')];
     const navLinks=[...mainNav.querySelectorAll('a[href^="#"]')];
-    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id));}}),{rootMargin:'-35% 0px -55% 0px'});
-    sections.forEach(section=>observer.observe(section));
+    // Keep the active navigation state working even when IntersectionObserver is unavailable.
+    if('IntersectionObserver' in window){
+      const activeSectionObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id));
+          }
+        });
+      },{rootMargin:'-35% 0px -55% 0px'});
+      sections.forEach(section=>activeSectionObserver.observe(section));
+    }else{
+      const updateActiveNavigation=()=>{
+        const currentSection=sections.filter(section=>section.getBoundingClientRect().top<=window.innerHeight*.4).pop();
+        if(currentSection){
+          navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+currentSection.id));
+        }
+      };
+      window.addEventListener('scroll',updateActiveNavigation,{passive:true});
+      window.addEventListener('resize',updateActiveNavigation);
+      updateActiveNavigation();
+    }
     document.getElementById('currentYear').textContent=new Date().getFullYear();
   
 
-    // Type the hero introduction once, then leave the full text in place.
+    // Loop the hero introduction: type, pause, erase, then repeat.
     (function startHeroTyping(){
       const paragraph=document.querySelector('.hero-copy');
       if(!paragraph)return;
@@ -569,11 +593,22 @@
       caret.setAttribute('aria-hidden','true');
       paragraph.append(typed,caret);
       let index=0;
-      const typeNext=()=>{
-        if(index<fullText.length){typed.textContent+=fullText.charAt(index++);window.setTimeout(typeNext, index<45?27:19);}
-        else{window.setTimeout(()=>caret.remove(),1800);}
-      };
-      window.setTimeout(typeNext,1050);
+      let deleting=false;
+      const typeSpeed=34, deleteSpeed=17, pauseAfterTyping=1500, pauseAfterDeleting=450;
+      function tick(){
+        if(!deleting){
+          index++;
+          typed.textContent=fullText.slice(0,index);
+          if(index>=fullText.length){deleting=true;window.setTimeout(tick,pauseAfterTyping);return;}
+          window.setTimeout(tick,typeSpeed);
+        }else{
+          index--;
+          typed.textContent=fullText.slice(0,index);
+          if(index<=0){deleting=false;window.setTimeout(tick,pauseAfterDeleting);return;}
+          window.setTimeout(tick,deleteSpeed);
+        }
+      }
+      window.setTimeout(tick,700);
     })();
 
   </script>

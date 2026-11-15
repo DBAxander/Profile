@@ -441,6 +441,104 @@
       }
     }
 
+
+    /* Light / dark theme support */
+    :root {
+      color-scheme: light;
+      --ink:#17243a; --muted:#637187; --blue:#2457d6; --blue-dark:#173eaa;
+      --line:#e4eaf2; --surface:#ffffff; --bg:#f7f9fc; --soft:#eef3ff;
+      --shadow:0 18px 50px rgba(26,48,87,.08);
+      --header-bg:rgba(255,255,255,.90); --card-bg:#ffffff;
+      --section-alt:#ffffff; --body-muted:#5f6e83;
+    }
+    body[data-theme="dark"] {
+      color-scheme: dark;
+      --ink:#e8eef9; --muted:#a5b2c7; --blue:#82a7ff; --blue-dark:#a4bdff;
+      --line:#293750; --surface:#172338; --bg:#0b1220; --soft:#1b2b49;
+      --shadow:0 18px 50px rgba(0,0,0,.28);
+      --header-bg:rgba(11,18,32,.91); --card-bg:#121e31;
+      --section-alt:#101a2b; --body-muted:#b0bdd0;
+    }
+    body { background:var(--bg); color:var(--ink); transition:background-color .25s ease,color .25s ease; }
+    .site-header { background:var(--header-bg); border-color:var(--line); }
+    nav a { color:var(--muted); }
+    .menu-toggle { color:var(--ink); }
+    .hero { background:radial-gradient(circle at 85% 18%,rgba(36,87,214,.10) 0,transparent 29%),linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%); }
+    .eyebrow { border-color:var(--line); background:var(--soft); color:var(--blue); }
+    .hero-copy,.about-card p,.section-head p,.fact span,.project-card p,.company { color:var(--muted); }
+    .hero-note { color:var(--muted); }
+    .btn-secondary,.portrait-frame,.portrait-caption,.fact,.about-card,.skill-card,.project-card,.info-panel {
+      background:var(--card-bg); color:var(--ink); border-color:var(--line);
+    }
+    .portrait-frame { box-shadow:var(--shadow); }
+    .portrait-frame:before { border-color:var(--line); }
+    .portrait-caption small { color:var(--muted); }
+    .quick-facts { background:var(--bg); }
+    #skills,#experience { background:var(--section-alt); }
+    .focus-item i,.project-icon { background:var(--soft); color:var(--blue); }
+    .tag { background:var(--soft); color:var(--muted); }
+    .skill-card h3,.project-card h3,.info-panel h3,.job-top h3,.info-entry strong { color:var(--ink); }
+    .timeline { border-color:var(--line); }
+    .timeline-item:before { border-color:var(--soft); }
+    .timeline-item ul,.cert-list li { color:var(--muted); }
+    .job-date { background:var(--soft); color:var(--blue); }
+    .info-entry+.info-entry { border-color:var(--line); }
+    .site-footer { background:#101c31; }
+    .project-gallery { background:linear-gradient(145deg,#eaf0fb,#f6f8fd)!important; }
+    .project-gallery-empty { background:linear-gradient(135deg,#edf2fc,#e6edff); }
+    .project-image-count { background:#eef3ff; color:#355ca5; }
+    .project-card { background:var(--card-bg); }
+    .menu-toggle { color:var(--ink); }
+
+    body[data-theme="dark"] .hero { background:radial-gradient(circle at 85% 18%,rgba(75,116,218,.18) 0,transparent 30%),linear-gradient(180deg,#111d30 0%,#0b1220 100%); }
+    body[data-theme="dark"] .site-header { border-bottom-color:var(--line); }
+    body[data-theme="dark"] nav { background:var(--card-bg); }
+    body[data-theme="dark"] .nav-cta { color:#fff!important; background:#315fc7; }
+    body[data-theme="dark"] .btn-secondary { background:#172338; color:var(--ink); border-color:var(--line); }
+    body[data-theme="dark"] .portrait-frame { background:#172338; }
+    body[data-theme="dark"] .portrait-frame:before { border-color:#344a70; }
+    body[data-theme="dark"] .profile-pic { background:#1c2b43; }
+    body[data-theme="dark"] .fact,
+    body[data-theme="dark"] .about-card,
+    body[data-theme="dark"] .skill-card,
+    body[data-theme="dark"] .project-card,
+    body[data-theme="dark"] .info-panel { background:#121e31; border-color:#293750; }
+    body[data-theme="dark"] #skills,
+    body[data-theme="dark"] #experience { background:#0e192a; }
+    body[data-theme="dark"] .tag { background:#202f49; color:#c2cde0; }
+    body[data-theme="dark"] .focus-item i,
+    body[data-theme="dark"] .project-icon { background:#20365e; color:#9bb8ff; }
+    body[data-theme="dark"] .project-gallery { background:linear-gradient(145deg,#1b2a43,#172338)!important; }
+    body[data-theme="dark"] .project-gallery-empty { background:linear-gradient(135deg,#1b2a43,#20365e); border-color:#293750; }
+    body[data-theme="dark"] .project-image-count { background:#20365e; color:#b8ccff; }
+    body[data-theme="dark"] .timeline { border-color:#30415c; }
+    body[data-theme="dark"] .timeline-item:before { background:#82a7ff; border-color:#20365e; box-shadow:0 0 0 2px #121e31; }
+    body[data-theme="dark"] .job-date { background:#20365e; color:#b8ccff; }
+    body[data-theme="dark"] .info-entry+.info-entry { border-color:#293750; }
+    body[data-theme="dark"] .project-card:hover { border-color:#4667a2; }
+    body[data-theme="dark"] .lightbox-thumb { background:#25334c; }
+    body[data-theme="dark"] .menu-toggle { color:var(--ink); }
+    body[data-theme="dark"] .site-footer { background:#080e19; }
+    body[data-theme="dark"] .section-kicker { color:#91afff; }
+
+    .theme-toggle {
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      min-height:40px; padding:8px 12px; border:1px solid var(--line);
+      border-radius:10px; background:var(--card-bg); color:var(--ink);
+      font:600 .82rem 'DM Sans',sans-serif; cursor:pointer; white-space:nowrap;
+      transition:background .2s ease,border-color .2s ease,transform .2s ease;
+    }
+    .theme-toggle:hover { transform:translateY(-1px); border-color:var(--blue); }
+    .theme-toggle i { color:var(--blue); }
+    @media(max-width:900px) { .theme-toggle { padding:8px 10px; } }
+    @media(max-width:700px) {
+      nav .theme-toggle { width:100%; justify-content:center; margin:8px 0; }
+      body[data-theme="dark"] nav { background:#121e31; border-color:var(--line); }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      body,.theme-toggle { transition:none!important; }
+    }
+
 </style>
 </head>
 <body>
@@ -449,7 +547,11 @@
       <a class="brand" href="#home" aria-label="Xander Rosanto home">XANDER <span>ROSANTO</span></a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
       <nav id="mainNav" aria-label="Main navigation">
-        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a class="nav-cta" href="#contact">Let's Connect</a>
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i><span class="theme-toggle-label">Dark mode</span>
+        </button>
+        <a class="nav-cta" href="#contact">Let's Connect</a>
       </nav>
     </div>
   </header>
@@ -562,6 +664,41 @@
 
   <footer class="site-footer"><div class="container footer-inner"><span>© <span id="currentYear"></span> Xander B. Rosanto. All rights reserved.</span><span>Designed with clarity and purpose.</span></div></footer>
   <script>
+
+
+    // Theme switcher: use the visitor's saved choice, otherwise follow their system setting.
+    (function initThemeToggle(){
+      const button = document.getElementById('themeToggle');
+      if (!button) return;
+      const icon = button.querySelector('i');
+      const label = button.querySelector('.theme-toggle-label');
+      const storageKey = 'xander-portfolio-theme';
+      let savedTheme = null;
+      try { savedTheme = localStorage.getItem(storageKey); } catch (error) {}
+      const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialTheme = savedTheme === 'dark' || savedTheme === 'light'
+        ? savedTheme : (systemPrefersDark ? 'dark' : 'light');
+
+      function applyTheme(theme, saveChoice){
+        document.body.setAttribute('data-theme', theme);
+        const dark = theme === 'dark';
+        icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        label.textContent = dark ? 'Light mode' : 'Dark mode';
+        button.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        button.setAttribute('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor) themeColor.setAttribute('content', dark ? '#0b1220' : '#f7f9fc');
+        if (saveChoice) {
+          try { localStorage.setItem(storageKey, theme); } catch (error) {}
+        }
+      }
+
+      applyTheme(initialTheme, false);
+      button.addEventListener('click', function(){
+        const nextTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(nextTheme, true);
+      });
+    })();
 
     // Accessible animated project image viewer.
     const lightbox=document.getElementById('imageLightbox');
